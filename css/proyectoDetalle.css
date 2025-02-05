@@ -1,0 +1,108 @@
+	/* border-style:solid;*/
+ .detalleIzquierdo{ width:25%; float:left; background:#e4ebf8 url(../images/center-blue.png) repeat-y left top;}
+ 
+ .detalleDerecho { width:75%; float:right; background:#f6f6f6 url(../images/center-bcg.png) repeat-y right top;}
+
+ .menu{ width:100%;	margin:0; font-family: Helvetica; }
+
+ .menu ul{ list-style:none; margin:0; padding:0; }
+
+ .menu ul li{ width:100%; float:left; margin:0;}
+/*=============================================*/
+/*EMPIEZO A TOCAR --RAMIRO MARTES 20/8 17:03*/
+ .ramiro{ width:85%; display:block; float:left; list-style:none; margin:0; padding:0;  }
+
+ .ramiro td{ width:11%; list-style:none; margin:0; padding:0;  }
+
+ .ramiroItem{ width: 11%; height: 45px;display: inline;}
+
+ .ramiroAvance		{ width: 11%; height: 48px;display: block;}
+ .ramiroBudget		{ width: 11%; height: 48px;display: block;}
+ .ramiroSCliente	{ width: 11%; height: 48px;display: block;}
+ .ramiroCalidad		{ width: 11%; height: 48px;display: block;}
+ .ramiroSeguimiento	{ width: 11%; height: 48px;display: block;}
+ .ramiroProveedores	{ width: 11%; height: 48px;display: block;}
+ .ramiroMilestone	{ width: 11%; height: 48px;display: block;}
+ .ramiroRiesgos		{ width: 11%; height: 48px;display: block;}
+ .ramiroOportunidad	{ width: 11%; height: 48px;display: block;}
+/*=============================================*/
+ .menu ul li a{
+	margin:0;
+    height:47px;
+    display:block;
+    border-width: 1px;
+    padding-left: 30px;
+	border-color: #404040 #1A1A1A #1A1A1A #505050;
+	text-decoration: none;
+    color: #1f3d71;
+    font:bold 17px Arial,Helvetica,sans-serif;
+	background: #e4ebf8 url(../images/center-blue.png) repeat-y  left top;
+    line-height: 1.3em;
+ }
+
+ .menu ul li ul{ width:100%;}
+
+ .menu ul li ul li{
+		width: auto; 
+		margin:0;
+		height:47px;
+		display:block;
+		padding-left: 30px;
+		border-color: #404040 #1A1A1A #1A1A1A #505050;
+		border-width: 1px;
+    margin-top:2px;
+    text-decoration: none;
+    color: #1f3d71;
+    font-size:14px;
+    font-weight: normal;
+    background: #f6f6f6 url(../images/center-bcg.png) repeat-y  right top;
+ }
+
+ .menu ul li a:hover{ margin:0; background: #5DB1E0 url(../images/arrow2.png) no-repeat center right;
+ color:#3030FF; border-color:#333 #0A0A0A #000 #1f3d71; 	}
+
+.menu ul li ul a:hover{ margin:0; background: #4698ca; color:#3030FF; border-color:#333 #0A0A0A #000 #1f3d71;	}
+
+.menu ul li ul{ display:none;	}
+
+/*-----------------------------------------------*/
+
+.detDer{ width:100%;	margin:0; font-family: Helvetica; }
+
+ .detDer ul{ list-style:none; margin:0; padding:0;  }
+
+ .detDer ul li ul{ width:100%;}
+
+ .detDer ul li{ width:100%; margin:0;}
+
+ .detDer ul li a{
+	margin:0;
+    height:47px;
+    display:block;
+    border-width: 1px;
+    padding-left: 10px;
+	border-left:1px solid #1f3d71; border-right:1px solid #0A0A0A;
+	border-color: #404040 #1A1A1A #1A1A1A #505050;
+	text-decoration: none;
+    color: #1f3d71;
+    font:bold 17px Arial,Helvetica,sans-serif;
+    background:#f6f6f6 url(../images/center-bcg.png) repeat-y  left top;
+    line-height: 1.3em;
+}
+.detDer ul li ul a{
+	margin:0;
+    height:47px;
+    display:block;
+    border-color: #404040 #1A1A1A #1A1A1A #505050;
+    border-width: 1px;
+    margin-top:2px;
+    text-decoration: none;
+    color: #1f3d71;
+    font-size:14px;
+    font-weight: normal;
+    background:#f6f6f6 url(../images/center-bcg.png) repeat-y  left top;
+}
+
+
+
+

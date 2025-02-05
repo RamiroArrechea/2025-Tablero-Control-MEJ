@@ -1,0 +1,114 @@
+#block{
+    width:170%;
+    height:150%;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    opacity:0.4;
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+    top:0;
+    left:0;
+}
+#block_rrhh{
+    width:170%;
+    height:150%;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    opacity:0.4;
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+    top:0;
+    left:0;
+}
+#popupbox h2{
+    margin:0px;
+}
+#popupbox{
+    position: absolute;
+	left:100px; 
+	top:100px; /*Ayudo kevin Benitez 16/4/013*/
+    display: none;
+    padding: 5px;
+    padding-top: 0px;
+    background-color: white;
+    border: 5px solid #C3D9FF;
+    border-radius: 5px 5px 5px 5px;
+    margin: 40px auto 0 208px;
+
+    width: 580px;
+    box-shadow:1px 1px 5px black;
+    z-index: 2;
+}
+#popupbox_rrhh{
+    position: absolute;
+	left:800px; 
+	top:100px; /*Ayudo kevin Benitez 16/4/013*/
+    display: none;
+    padding: 5px;
+    padding-top: 0px;
+    background-color: white;
+    border: 5px solid #C3D9FF;
+    border-radius: 5px 5px 5px 5px;
+    margin: 40px auto 0 208px;
+
+    width: 580px;
+    box-shadow:1px 1px 5px black;
+    z-index: 2;
+}
+
+.buttonsBar{
+    text-align: right;
+    margin-top: 3px;
+}
+#popupbox label{
+    display: block;
+    float: left;
+    margin-right: 9px;
+    margin-top: 15px;
+    text-align: left;
+    width: 250px;
+}
+a.button {
+    background-color: #92cae4;
+    border:1px solid #205791;
+    color:white;
+    padding:5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow:1px 1px 5px black;
+    tex-shadow:1px 1px black;
+}
+table{
+    box-shadow:1px 1px 5px black;
+     /* hack IE8 */
+    border-spacing: 0 \0/;
+    border-collapse: collapse \0/;
+    border-right: 2px inset #D3D3D3 \0/;
+    border-bottom: 2px inset #D3D3D3 \0/;
+     /* hack IE7 */
+    *border-spacing: 0;
+    *border-collapse: collapse;
+    *border-right: 2px inset #D3D3D3;
+    *border-bottom: 2px inset #D3D3D3;
+}
+.bar{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.title{
+	background:#1e4381 url(../images/bg-menu.gif) no-repeat right top;
+    background-color: #1e4381;
+    /*border: 2px solid blanchedAlmond;*/
+    border: 2px solid #1e4381 ;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 5px 5px 15px #999;
+    color: white;
+    font-family: Lucida Grande;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 5px;
+    text-shadow: 1px 1px gray;
+}
