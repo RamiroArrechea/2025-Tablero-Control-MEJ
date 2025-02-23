@@ -14,7 +14,20 @@
 	require "./funciones/claseProyecto.php";
 
 	if (isset($_GET['idProyecto'])) {
-		$_SESSION['MEJ_COMUNIDAD'] = $_GET['idProyecto'];
+		$_SESSION['ID_COMUNIDAD'] = $_GET['idProyecto'];
+	}
+
+	switch($_SESSION['ID_COMUNIDAD']){
+		case 1:
+			$_SESSION['MEJ_COMUNIDAD'] = "MEJ SOLANO";
+			break;
+		case 2:
+			$_SESSION['MEJ_COMUNIDAD'] = "MEJ ITATI";
+			break;
+		default:
+			$_SESSION['MEJ_COMUNIDAD']	= "otro";
+			break;
+
 	}
 
 
@@ -44,9 +57,8 @@
 					<?php /*Primer Tabla con descripcion del  PROYECTOS!!!
 							De ser necesario, cambiar los datos desde el archivo descripcionProyecto
 					*/
-					echo $_SESSION['MEJ_COMUNIDAD'];
 					?>
-					<b>	QUE HACES PERRITO:<br></b>
+					<b>	Comunidad: <?php echo $_SESSION['MEJ_COMUNIDAD']?> <br></b>
 					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
 				</ul>
 			</div><!-- menu -->
@@ -65,13 +77,12 @@
 							$d0 = new Objeto;
 							$d0->setId("1");
 							$d0->setName("<b>VOLVER</b>");
-							$d0->setHref("./index.php?idProyecto=".$_SESSION['MEJ_COMUNIDAD']);
+							$d0->setHref("./index.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 							$d0->show();
 							?>
 						</li>
 						 
-						<?php	require "./secciones/ComunidadColumnaItem.php";   ?>
-						
+						<?php	require "./secciones/ComunidadColumnaItem.php";   ?>					
 					</ul>
 				</div>
 			</div>
@@ -79,8 +90,7 @@
 			<div class="rightcolumn">
 				<div id="cajaLista">
 					<ul id="cajaLista">
-						<?php /*	Detalle de los Items en la parte superior del tablero !!!
-								De ser necesario, cambiar los datos desde el archivo listaItem
+						<?php /*	Comentario, por esi es necesario del tablero !!!
 						*/?>
 							<div class='logCenter'><b><u>Seleccion su pantalla</u></b></div>
 					</ul>

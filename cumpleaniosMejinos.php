@@ -4,20 +4,18 @@
 	# Antes que nada, inicializamos una sesion
 	session_start(); 
 	session_id(); 
-	# Establesco la conexion con la base de datos.
-	//include "../conexion/conexionDB.php";
 	
 	$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 
 	$_SESSION['ID_COMUNIDAD'];
 	$_SESSION['MEJ_COMUNIDAD'];
-
+	
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
 
 	require "./conexion/conexionDB.php";
-	require "./conexion/consultasMejinosEspacio.php";
+	require "./conexion/consultasCumpleaniosMejinos.php";
 
 		
 ?>
@@ -46,7 +44,7 @@
 		<div id="table">	<!-- TABLA DETALLE DEL PROYECTO-->
 			<div class="menu">
 				<ul>
-					<?php /* Primer Tabla con descripcion del  PROYECTOS!!!
+					<?php /*Primer Tabla con descripcion del  PROYECTOS!!!
 					*/?>
 					<b>	Comunidad: <?php echo $_SESSION['MEJ_COMUNIDAD']?> <br></b>
 					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
@@ -64,7 +62,7 @@
 							$d0 = new Objeto;
 							$d0->setId("1");
 							$d0->setName("<b>VOLVER</b>");
-							$d0->setHref("./espaciosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
+							$d0->setHref("./mejComunidad.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 							$d0->show();
 							?>
 						</li>
@@ -80,8 +78,7 @@
 						<?php /*	Detalle de los Items en la parte superior del tablero !!!
 								De ser necesario, cambiar los datos desde el archivo listaItem
 						*/?>
-						<?php	include "./secciones/EspaciosListaItem.php";   ?>
-						<div class='logCenter'></div>
+							<div class='logCenter'><b>CUMPLEN AÑOS ESTE MES:</b></div>
 					</ul>
 				</div>
 			</div>
@@ -94,61 +91,19 @@
 								<th>Apellido</th>
 								<th>Nombre</th>
 								<th>Fecha Nac.</th>
-								<th>Edad.</th>
-								<th>Etapa</th>
-								<th>Comunidad</th>
-								<th>Sacramento</th>
+								<th>Cupleaños.</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php	
-								while($filaPre = mysqli_fetch_assoc($resultadoPre)){
+								while($fila = mysqli_fetch_assoc($resultadoCumple)){
 							?>
 							<tr>
 								<!-- <td> <?php //echo $filaJunior['mejinos_id'] ?> </td>--> 
-								<td> <?php echo $filaPre['mejinos_apellido'] ?> </td>
-								<td> <?php echo $filaPre['mejinos_nombre'] ?> 	</td>
-								<td> <?php echo $filaPre['mejinos_fechaNac'] ?> </td>
-								<td> <?php echo $filaPre['edad'] ?> </td> <!-- LINEA AGREGADA POR QUERY--> 
-								<td> 
-									<?php 
-									//echo $filas['mejinos_etapa'] 
-									switch ($filaPre['mejinos_etapa']){
-										case 1:	echo "TB.";			break;
-										case 2:	echo "Semilla.";		break;
-										case 3:	echo "Amigos.";		break;
-										case 4:	echo "Disc.";		break;
-										case 5:	echo "Apo.";		break;
-										case 6:	echo "Testigos.";	break;
-										default:
-											echo "Monitor";
-									}
-									?>
-								</td>
-								<td> 
-									<?php 
-									//echo $filas['mejinos_comunidad'] 
-									switch ($filaPre['mejinos_comunidad']){
-										case 1:	echo "Solano";		break;
-										case 2:	echo "Itatí";		break;
-										case 3:	echo "B.Pastor";	break;
-										default:	
-											echo "NO TIENE";
-									}
-									?> 	
-								</td>
-								<td> 
-									<?php 
-									//echo $filas['mejinos_sacramento'] 
-									switch ($filaPre['mejinos_sacramento']){
-										case 1:	echo "BAUTISMO";		break;
-										case 2:	echo "Comunión.";		break;
-										case 3:	echo "Confirmación.";	break;
-										default:	
-											echo "NO TIENE";
-									}
-									?> 
-								</td>
+								<td> <?php echo $fila['mejinos_apellido'] ?> </td>
+								<td> <?php echo $fila['mejinos_nombre'] ?> 	</td>
+								<td> <?php echo $fila['mejinos_fechaNac'] ?> </td>
+								<td> <?php echo $fila['cumple'] ?> </td> <!-- LINEA AGREGADA POR QUERY--> 
 													
 							</tr>
 							<?php } ?>

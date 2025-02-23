@@ -1,39 +1,40 @@
 
 <?php
 
-/* ////////////////////////////////////////////////////
-	TABLERO DE CONTROL: MEJ
- Se realiza la creación y puesta funcional de la primer versión
- de este tablero de control.
+	/* ////////////////////////////////////////////////////
+		TABLERO DE CONTROL: MEJ
+	Se realiza la creación y puesta funcional de la primer versión
+	de este tablero de control.
 
- autor: RAMIRO ARRECHEA
- fecha: 01-01-2005
+	autor: RAMIRO ARRECHEA
+	fecha: 01-01-2005
 
- version: 1.0.0
+	version: 1.0.0
 
-*///////////////////////////////////////////////////////
+	*///////////////////////////////////////////////////////
 
 	# Antes que nada, inicializamos una sesion
 	session_start(); 
 	session_id(); 
-	/* Incluyo la referencia a la clase.*/	
+	
 	$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
+
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./conexion/conexionDB.php";
 	require "./funciones/claseProyecto.php";
 
-	require "./conexion/consultasMejinos.php";
+	
+	//require "./conexion/consultasMejinos.php";
+	require "./conexion/consultasColorSemaforos.php";
 
 	//CREAMOS VARIABLES, que se van a usar para los semafors:	
-	$_SESSION['SEM_ETAPAS'] = $colorSemEtapas;
-	$_SESSION['SEM_MEJINOS'] = $colorSemMejinos;
-	$_SESSION['SEM_ESPACIOS'] = $colorSemEspacios;
-	$_SESSION['SEM_SACRAMENTOS'] = $colorSemSacrameto;
+	$_SESSION['idComunidad'] = 0;
+	$_SESSION['totalMejinos'] = 0;
+	$_SESSION['SEM_ESPACIOS'] = "off";
+	$_SESSION['SEM_ETAPAS'] 	= "off";
+	$_SESSION['SEM_SACRAMENTOS'] = "off";
 
-	$_SESSION['MEJ_COMUNIDAD'] = 1;
-	//echo "PRUEBA- SEM_SACRAMENTOS-AFUERA:" .$_SESSION['SEM_SACRAMENTOS'];
-	//echo "PRUEBA- SEM_ETAPAS-AFUERA:" .$_SESSION['SEM_ETAPAS'];
 	
 ?>
 
@@ -93,7 +94,7 @@
 						<!-- Tabla izquierda con la lista de Item dentro del proyecto!!!
 							De ser necesario, cambiar los datos desde el archivo columnaItem.
 						-->
-						<li><?php		# Item << Avance >>
+						<li><?php
 							$d0 = new Objeto;
 							$d0->setId("1");
 							$d0->setName("<b>Comunidad</b>");
@@ -125,10 +126,22 @@
 						<ul id="cajaLista">
 							<!---------------TODOS-los-Renglones-------------------------->
 							<?php 
-								$cantComunidades=4;
-								for($cant = 1; $cant< $cantComunidades; $cant++){							
+								//echo "ramiro - " . $cantComunidades['total'];
+								//echo "ramiro - " . $cantComu;
+								$cantComu = obtenerCantidadComunidad();
+								
+								for($cant = 1; $cant<= $cantComu; $cant++)
+								{	
+									$cantMejinos = obtenerCantidadMejinos($cant);
+									$_SESSION['SEM_ESPACIOS']	= obtenerSemaforoEspacio($cantMejinos);
+									$_SESSION['SEM_ETAPAS']		= obtenerSemaforoEtapas($cantMejinos);
+									$_SESSION['SEM_SACRAMENTOS']= obtenerSemaforoSacramentos($cantMejinos);
+									$_SESSION['SEM_MEJINOS']	= obtenerSemaforoMejinos($cantMejinos);
+									
+									//Pinto la pantalla con los colores.
 									require "./secciones/IndexTableroSemaforo.php";   
-							}?>
+								}
+							?>
 						</ul></b>
 				</div>
 			</div>

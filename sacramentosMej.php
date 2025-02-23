@@ -4,16 +4,18 @@
 	# Antes que nada, inicializamos una sesion
 	session_start(); 
 	session_id(); 
-	# Establesco la conexion con la base de datos.
-	//include "../conexion/conexionDB.php";
 	
 	$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
+
+	$_SESSION['ID_COMUNIDAD'];
+	$_SESSION['MEJ_COMUNIDAD'];
+
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
 
 	require "./conexion/conexionDB.php";
-	require "./conexion/consultasMejinos.php";
+	require "./conexion/consultasSacramentos.php";
 	
 ?>
 
@@ -38,10 +40,9 @@
 		<div id="table">	<!-- TABLA DETALLE DEL PROYECTO-->
 			<div class="menu">
 				<ul>
-					<?php /*Primer Tabla con descripcion del  PROYECTOS!!!
-							De ser necesario, cambiar los datos desde el archivo descripcionProyecto
+					<?php /* Agregar comentario, de ser necesario!!!
 					*/?>
-					<b>	QUE HACES PERRITO:<br></b>
+					<b>	Comunidad: <?php echo $_SESSION['MEJ_COMUNIDAD']?> <br></b>
 					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
 				</ul>
 			</div><!-- menu -->
@@ -56,12 +57,12 @@
 						<!-- Tabla izquierda con la lista de Item dentro del proyecto!!!
 							De ser necesario, cambiar los datos desde el archivo columnaItem.
 						-->
-						<li><?php		# Item << Avance >>
-							$d1 = new Objeto;
-							$d1->setId("1");
-							$d1->setName("<b>VOLVER</b>");
-							$d1->setHref("./index.php");
-							$d1->show();
+						<li><?php
+							$d0 = new Objeto;
+							$d0->setId("1");
+							$d0->setName("<b>VOLVER</b>");
+							$d0->setHref("./mejComunidad.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
+							$d0->show();
 							?>
 						</li>
 						<?php	include "./secciones/SacramentosColumnaItem.php";   ?>

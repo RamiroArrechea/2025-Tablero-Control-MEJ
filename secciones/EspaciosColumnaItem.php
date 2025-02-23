@@ -30,7 +30,7 @@
 		<li><?php
 			$i5 = new Objeto;
 			$i5->setId("4");
-			$i5->setName('Informacion');
+			$i5->setName('vacio');
 			$i5->show();
 			?>
 		</li>

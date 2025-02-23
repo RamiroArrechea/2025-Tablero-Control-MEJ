@@ -51,7 +51,7 @@
 			<table>
 				<tbody>
 					<tr>Cargar mejino nuevo: - 
-						<?php echo "<a href='./mejinosABM.php'>AGREGAR</a>"; ?>
+						<?php echo "<a href='./mejinosABM_Agregar.php'>AGREGAR</a>"; ?>
 					</tr>
 				</tbody>
 			</table>

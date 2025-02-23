@@ -1,22 +1,166 @@
 <?php
 
+///EL DIA DE MAÑANA MEJORARLO
+//QUIZAS HACIENDO TODO DENRTO DE UINA CLASE!
+$_SESSION['conexion'] = $conn;
+$_SESSION['totalMejinos'] = 0;
+
+	///////////////////////////////////////////////////
+	//	obtenerCantidadComunidad() 
+	function obtenerCantidadComunidad() 
+	{
+		$cantComunidades= "0";
+		$sql = "SELECT COUNT(DISTINCT `mejinos_comunidad`) as total 
+		FROM `mejinos`";
+
+				
+		$resultado = mysqli_query($_SESSION['conexion'],$sql);
+		$cantComunidades = mysqli_fetch_assoc($resultado);
+		//$cantComunidades = $cant['mejinos_comunidad'];
+
+		
+		if ($resultado!="") {
+			//Compruebo qeu todo sea correcto
+			//echo "El cantComunidades es: " . $cantComunidades['total'];
+			return $cantComunidades['total'];
+		}else{
+			echo "error------ en adolescentes";
+		}
+
+	}
+
+	///////////////////////////////////////////////////
+	//	TOTAL MEJINOS
+	function obtenerCantidadMejinos($idComunidad)
+	{
+		//Devuelve un "entero"
+		$_SESSION['MEJ_COMUNIDAD'] = $idComunidad;
+
+		$sql = "SELECT count(*) as 'total' FROM `mejinos`
+		WHERE mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
+		//WHERE mejinos_sacramento = '".$totalConfirmacion."'";*/
+		
+		$resultado = mysqli_query($_SESSION['conexion'],$sql);
+		$fila = mysqli_fetch_assoc($resultado);
+		$totalMejinos = $fila['total'];
+
+		if ($resultado!="") {
+		//Compruebo qeu todo sea correcto
+		//echo "El totalMejinos es: " . $totalMejinos;
+			return $totalMejinos;
+		}else{
+		//echo "error------ en tierraBuena";
+		}
+	}
+
+	///////////////////////////////////////////////////
+	//	A partir de acá, se dan todos los select para determinar los colores de los semaforos
+	function obtenerSemaforoEspacio($totalMejinos)
+	{
+		//RECIBE UN ENTERO
+
+		$colorSemEspacios = "off";
+		//Compruebo qeu todo sea correcto
+		switch($totalMejinos){
+			case $totalMejinos > 15:
+				$colorSemEspacios ="verde";
+				break;
+			case $totalMejinos > 0 && $totalMejinos <15:
+				$colorSemEspacios ="amarillo";
+				break;
+			case $totalMejinos < 3 :
+				$colorSemEspacios ="rojo";
+				break;
+		}
+		return $colorSemEspacios;
+		
+	}
+
+	function obtenerSemaforoEtapas($totalMejinos)
+	{
+		//RECIBE UN ENTERO
+
+		$colorSemEtapas = "";
+		//Compruebo qeu todo sea correcto
+		switch($totalMejinos){
+			case $totalMejinos > 15:
+				$colorSemEtapas ="verde";
+				break;
+			case $totalMejinos > 0 && $totalMejinos <15:
+				$colorSemEtapas ="amarillo";
+				break;
+			case $totalMejinos < 3 :
+				$colorSemEtapas ="rojo";
+				break;
+		}
+
+		return $colorSemEtapas;
+		
+	}
+
+	function obtenerSemaforoSacramentos($totalMejinos)
+	{
+		//RECIBE UN ENTERO
+
+		$colorSemSacrameto = "";
+		//Compruebo qeu todo sea correcto
+		switch($totalMejinos){
+			case $totalMejinos > 15:
+				$colorSemSacrameto ="verde";
+				break;
+			case $totalMejinos > 0 && $totalMejinos <15:
+				$colorSemSacrameto ="amarillo";
+				break;
+			case $totalMejinos < 3 :
+				$colorSemSacrameto ="rojo";
+				break;
+		}
+
+		return $colorSemSacrameto;
+
+	}
+
+	function obtenerSemaforoMejinos($totalMejinos)
+	{
+		//RECIBE UN ENTERO
+
+		$colorSemMejinos = "";
+		//Compruebo qeu todo sea correcto
+		switch($totalMejinos){
+			case $totalMejinos > 15:
+				$colorSemMejinos ="verde";
+				break;
+			case $totalMejinos > 0 && $totalMejinos <15:
+				$colorSemMejinos ="amarillo";
+				break;
+			case $totalMejinos < 3 :
+				$colorSemMejinos ="rojo";
+				break;
+		}
+
+		return $colorSemMejinos;
+
+	}
 
 	////////////////////////////////////////////////////////////////////////
 	// CONSUSLTAS COUNT(*) DE ETAPAS
 	////////////////////////////////////////////////////////////////////////
-	//ETAPA
-	$totalTierraBuena = '1';
-	$totalSemilla 	= '2';
-	$totalAmigos 	= '3';
-	$totalDiscipulos = '4';
-	$totalApostoles = '5';
-	$totalTestigos 	= '6';
-	$totalMonitores = '7';
+	/*function obtenerCantidadPorEtapas()
+	{
+		//ETAPA
+		$totalTierraBuena = '1';
+		$totalSemilla 	= '2';
+		$totalAmigos 	= '3';
+		$totalDiscipulos = '4';
+		$totalApostoles = '5';
+		$totalTestigos 	= '6';
+		$totalMonitores = '7';
 
+		$_SESSION['MEJ_COMUNIDAD'] = 
 		//	TIERRA BUENA
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_etapa = '".$totalTierraBuena."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 
 		$resultado = mysqli_query($conn,$sql);
@@ -35,7 +179,7 @@
 		//	SEMILLA
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_etapa = '".$totalSemilla."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -53,7 +197,7 @@
 		//	AMIGO
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_etapa = '".$totalAmigos."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -71,7 +215,7 @@
 		//	DISCIPULO
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_etapa = '".$totalDiscipulos."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -89,7 +233,7 @@
 		//	APOSTOL
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_etapa = '".$totalApostoles."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -107,7 +251,7 @@
 		//	TESTIGOs
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_etapa = '".$totalTestigos."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -125,7 +269,7 @@
 		//	MONITORES
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_etapa = '".$totalMonitores."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -140,7 +284,7 @@
 			echo "error------ en tierraBuena";
 		}
 
-
+	}
 	
 	////////////////////////////////////////////////////////////////////////
 	// CONSUSLTAS COUNT(*) DE SACRAMENTOS
@@ -158,7 +302,7 @@
 		///////////////////////////////////////////////////
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_sacramento = '".$totalBautismo."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -178,7 +322,7 @@
 		///////////////////////////////////////////////////
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_sacramento = '".$totalComunion."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -198,7 +342,7 @@
 		///////////////////////////////////////////////////
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_sacramento = '".$totalConfirmacion."'
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."'";
 
 		$resultado = mysqli_query($conn,$sql);
 		$fila = mysqli_fetch_assoc($resultado);
@@ -213,32 +357,13 @@
 			echo "error------ en tierraBuena";
 		}
 
-		///////////////////////////////////////////////////
-		//	TOTAL MEJINOS
-		///////////////////////////////////////////////////
-		$sql = "SELECT count(*) as 'total' FROM `mejinos`
-		WHERE mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
-		//WHERE mejinos_sacramento = '".$totalConfirmacion."'";*/
-		
-
-		$resultado = mysqli_query($conn,$sql);
-		$fila = mysqli_fetch_assoc($resultado);
-		$totalMejinos = $fila['total'];
-			
-
-		if ($resultado!="") {
-			//Compruebo qeu todo sea correcto
-			echo "El total es: " . $totalMejinos;
-			
-		}else{
-			echo "error------ en tierraBuena";
-		}
-	
 
 
 	////////////////////////////////////////////////////////////////////////
 	// CONSUSLTAS para obtener personas por rango de edades
 	////////////////////////////////////////////////////////////////////////
+	function obtenerCantidadPorEspacios()
+	{
 		/* si es menor de edad
 		$sql = "SELECT 
 			*,
@@ -249,8 +374,8 @@
 			END AS estado_edad
 		FROM mejinos
 		WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) < 18`";*/
+/*
 
-		//////////////////////////////////////////////////////////////////////////////
 		//JUNIOR: EDAD DE ENTRE 9 -11 AÑOS
 		$sql = "SELECT count(*) AS total,
 		TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad,
@@ -260,7 +385,7 @@
 		END AS JUNIOR
 		FROM mejinos
 		WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 9 AND 11
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
 		ORDER BY edad";
 
 		$resultado = mysqli_query($conn,$sql);
@@ -276,7 +401,6 @@
 			echo "error------ en totalPre";
 		}
 
-		//////////////////////////////////////////////////////////////////////////////
 		//PRE ADOLESCENTES: EDAD DE ENTRE 12 -14 AÑOS
 		$sql = "SELECT count(*) AS total,
 		TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad,
@@ -286,7 +410,7 @@
 		END AS PRE
 		FROM mejinos
 		WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 12 AND 14
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
 		ORDER BY edad";
 
 		$resultado = mysqli_query($conn,$sql);
@@ -302,7 +426,7 @@
 			echo "error------ en totalPre";
 		}
 
-		//////////////////////////////////////////////////////////////////////////////
+
 		//ADOLESCENTES: EDAD DE ENTRE 15 -17 AÑOS
 		$sql = "SELECT count(*) AS total,
 		TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad,
@@ -312,7 +436,7 @@
 		END AS ADO
 		FROM mejinos
 		WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 15 AND 17
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
 		ORDER BY edad";
 
 		$resultado = mysqli_query($conn,$sql);
@@ -328,8 +452,8 @@
 			echo "error------ en adolescentes";
 		}
 
-		//////////////////////////////////////////////////////////////////////////////
-		//JOVENES: EDAD DE ENTRE 18 -22 AÑOS
+
+		//JOVENES: EDAD DE ENTRE 18 -23 AÑOS
 		$sql = "SELECT count(*) AS total,
 		TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad,
 		CASE 
@@ -338,7 +462,7 @@
 		END AS ADO
 		FROM mejinos
 		WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 18 AND 22
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
 		ORDER BY edad";
 
 		$resultado = mysqli_query($conn,$sql);
@@ -354,7 +478,7 @@
 			echo "error------ en adolescentes";
 		}
 
-		//////////////////////////////////////////////////////////////////////////////
+
 		//ADULTOS: EDAD DE ENTRE 23 -99 AÑOS
 		$sql = "SELECT count(*) AS total,
 		TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad,
@@ -364,7 +488,7 @@
 		END AS ADO
 		FROM mejinos
 		WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 23 AND 99
-		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
 		ORDER BY edad";
 
 		$resultado = mysqli_query($conn,$sql);
@@ -380,6 +504,14 @@
 			echo "error------ en adolescentes";
 		}
 
+	}
 
 
+
+	
+
+
+
+*/
 ?>
+

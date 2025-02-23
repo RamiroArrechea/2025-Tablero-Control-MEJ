@@ -9,6 +9,10 @@
 	
 	$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
+
+	$_SESSION['ID_COMUNIDAD'];
+	$_SESSION['MEJ_COMUNIDAD'];
+
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
 
@@ -43,9 +47,8 @@
 			<div class="menu">
 				<ul>
 					<?php /*Primer Tabla con descripcion del  PROYECTOS!!!
-							De ser necesario, cambiar los datos desde el archivo descripcionProyecto
 					*/?>
-					<b>	QUE HACES PERRITO:<br></b>
+					<b>	Comunidad: <?php echo $_SESSION['MEJ_COMUNIDAD']?> <br></b>
 					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
 				</ul>
 			</div><!-- menu -->
@@ -62,7 +65,7 @@
 							$d0 = new Objeto;
 							$d0->setId("1");
 							$d0->setName("<b>VOLVER</b>");
-							$d0->setHref("./espaciosMej.php"); //el dia de mañana reemplazar por COMUNIDAD
+							$d0->setHref("./espaciosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 							$d0->show();
 							?>
 						</li>

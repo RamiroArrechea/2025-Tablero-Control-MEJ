@@ -19,7 +19,7 @@
 					TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
 				FROM mejinos
 				WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 9 AND 11
-				AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
+				AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
 				ORDER BY mejinos_id;";
 
 		$resultadoJunior = mysqli_query($conn,$sql);
@@ -27,19 +27,19 @@
 
 		if ($resultadoJunior!="") {
 			//Compruebo qeu todo sea correcto
-			echo "ENTRE A resultadoJunior " ;
+			//echo "ENTRE A resultadoJunior " ;
 			
 		}else{
 			echo "error------ A resultadoJunior " ;
 		}
 
-		
+		//////////////////////////////////////////////////////////////////////////////
 		//PRE ADOLESCENTES: EDAD DE ENTRE 12 -14 AÑOS
 		$sql = "SELECT *, 
 					TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
 				FROM mejinos
 				WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 12 AND 14
-				AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
+				AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
 				ORDER BY mejinos_id;";
 
 		$resultadoPre = mysqli_query($conn,$sql);
@@ -47,47 +47,47 @@
 
 		if ($resultadoPre!="") {
 			//Compruebo qeu todo sea correcto
-			echo "ENTRE A resultadoPre " ;
+			//echo "ENTRE A resultadoPre " ;
 			
 		}else{
 			echo "error------ A resultadoPRE " ;
 		}
 
-
+		//////////////////////////////////////////////////////////////////////////////
 		//ADOLESCENTES: EDAD DE ENTRE 15 -17 AÑOS
 		$sql = "SELECT *, 
 					TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
 				FROM mejinos
 				WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 15 AND 17
-				AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
+				AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
 				ORDER BY mejinos_id;";
 
 		$resultadoAdo = mysqli_query($conn,$sql);
 
 
 		if ($resultadoAdo!="") {
-		//Compruebo qeu todo sea correcto
-		echo "ENTRE A resultadoPre " ;
+			//Compruebo qeu todo sea correcto
+			//echo "ENTRE A resultadoPre " ;
 
 		}else{
 		echo "error------ A resultadoADO " ;
 		}
 
-
+		//////////////////////////////////////////////////////////////////////////////
 		//JOVENES: EDAD DE ENTRE 18 - 22 AÑOS
 		$sql = "SELECT *, 
 					TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
 				FROM mejinos
 				WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 18 AND 22
-				AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
+				AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
 				ORDER BY mejinos_id;";
 
 		$resultadoJovenes = mysqli_query($conn,$sql);
 
 
 		if ($resultadoJovenes!="") {
-		//Compruebo qeu todo sea correcto
-		echo "ENTRE A resultadoJovenes " ;
+			//Compruebo qeu todo sea correcto
+			//echo "ENTRE A resultadoJovenes " ;
 
 		}else{
 		echo "error------ A resultadoADO " ;
@@ -99,15 +99,15 @@
 					TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
 				FROM mejinos m
 				WHERE TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) BETWEEN 23 AND 99
-				AND mejinos_comunidad = '".$_SESSION['MEJ_COMUNIDAD']."' 
+				AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
 				ORDER BY mejinos_id;";
 
 		$resultadoAdultos = mysqli_query($conn,$sql);
 
 
 		if ($resultadoAdultos!="") {
-		//Compruebo qeu todo sea correcto
-		echo "ENTRE A resultadoJovenes " ;
+			//Compruebo qeu todo sea correcto
+			//echo "ENTRE A resultadoJovenes " ;
 
 		}else{
 		echo "error------ A resultadoADO " ;
