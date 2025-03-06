@@ -10,13 +10,19 @@
 
 	$_SESSION['ID_COMUNIDAD'];
 	$_SESSION['MEJ_COMUNIDAD'];
+
+	//columnas	
+	$_SESSION['ESPACIOS']		="false";
+	$_SESSION['ESTAPAS']		="false";
+	$_SESSION['SACRAMENTOS']	="false";
+	$_SESSION['MEJ_CUMPLEANIOS'] ="false";
+	
 	
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
 
 	require "./conexion/conexionDB.php";
 	require "./conexion/consultasCumpleaniosMejinos.php";
-
 		
 ?>
 
@@ -66,7 +72,10 @@
 							$d0->show();
 							?>
 						</li>
-						<?php	include "./secciones/EspaciosColumnaItem.php";   ?>
+						<?php	
+							$_SESSION['MEJ_CUMPLEANIOS'] = "true";
+							include "./secciones/ColumnaItem.php";   
+						?>
 						
 					</ul>
 				</div>
@@ -91,7 +100,7 @@
 								<th>Apellido</th>
 								<th>Nombre</th>
 								<th>Fecha Nac.</th>
-								<th>Cupleaños.</th>
+								<th>Cumpleaños.</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -103,7 +112,7 @@
 								<td> <?php echo $fila['mejinos_apellido'] ?> </td>
 								<td> <?php echo $fila['mejinos_nombre'] ?> 	</td>
 								<td> <?php echo $fila['mejinos_fechaNac'] ?> </td>
-								<td> <?php echo $fila['cumple'] ?> </td> <!-- LINEA AGREGADA POR QUERY--> 
+								<td> <?php echo $fila['edad'] ?> </td> <!-- LINEA AGREGADA POR QUERY--> 
 													
 							</tr>
 							<?php } ?>

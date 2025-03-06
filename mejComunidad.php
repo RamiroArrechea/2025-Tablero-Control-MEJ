@@ -10,6 +10,12 @@
 	$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 
+	//columnas	
+	$_SESSION['ESPACIOS']		="false";
+	$_SESSION['ESTAPAS']		="false";
+	$_SESSION['SACRAMENTOS']	="false";
+	$_SESSION['MEJ_CUMPLEANIOS'] ="false";
+
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
 

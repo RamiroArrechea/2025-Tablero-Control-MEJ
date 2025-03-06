@@ -11,6 +11,12 @@
 	$_SESSION['ID_COMUNIDAD'];
 	$_SESSION['MEJ_COMUNIDAD'];
 
+	//columnas	
+	$_SESSION['ESPACIOS']		="false";
+	$_SESSION['ESTAPAS']		="false";
+	$_SESSION['SACRAMENTOS']	="false";
+	$_SESSION['MEJ_CUMPLEANIOS'] ="false";
+
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
 
@@ -65,7 +71,10 @@
 							$d0->show();
 							?>
 						</li>
-						<?php	include "./secciones/SacramentosColumnaItem.php";   ?>
+						<?php	
+							$_SESSION['SACRAMENTOS'] = "true";
+							include "./secciones/ColumnaItem.php";   ?>
+							
 						
 					</ul>
 				</div>

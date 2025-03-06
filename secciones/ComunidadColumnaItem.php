@@ -3,24 +3,22 @@
 		Este archivo esta pensado para que en un futuro, cuando deban agregarse ITEMS al proyectos o modificar los 
 		existentes, solo cambiandolos desde aca, se cambien todos automaticamente.
 */
-			
+	
 ?>
 
 		<li><?php
-			$i1 = new Objeto;
-			$i1->setId("1");
-			$i1->setName('ESPACIOS');				
-			$i1->setHref("./espaciosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
-			//$i2->setHref("./espaciosMej.php?");
-			$i1->show();
+			$i2 = new Objeto;
+			$i2->setId("1");
+			$i2->setName('ESPACIOS');
+			$i2->setHref("./espaciosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
+			$i2->show();
 			?>
 		</li>
 		<li><?php
 			$i3 = new Objeto;
 			$i3->setId("3");
-			$i3->setName('ETAPAS');			
+			$i3->setName('ETAPAS');
 			$i3->setHref("./etapasMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
-			//$i3->setHref('./etapasMej.php');
 			$i3->show();
 			?>
 		</li>
@@ -29,7 +27,6 @@
 			$i4->setId("4");
 			$i4->setName('SACRAMENTOS');
 			$i4->setHref("./sacramentosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
-			//$i4->setHref('./sacramentosMej.php');
 			$i4->show();
 			?>
 		</li>
@@ -46,7 +43,6 @@
 			$i6->setId("4");
 			$i6->setName('MEJINOS');
 			$i6->setHref("./mejinosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
-			//$i5->setHref('./mejinosMej.php');
 			$i6->show();
 			?>
 		</li>
