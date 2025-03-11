@@ -5,7 +5,7 @@
 	session_start(); 
 	session_id(); 
 
-	$_SESSION['usuario'] = "Rama";
+	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo']	= "root";
 	
 
@@ -14,7 +14,7 @@
 	
 	require "./conexion/conexionDB.php";
 
-echo "estoy fuera";
+
 	if(!isset($_POST['enviar']) ){
 		echo "estoy dentro";
 		$id= $_GET['id'];
@@ -25,14 +25,8 @@ echo "estoy fuera";
 		$resultadoSelect = mysqli_query($conn,$sqlSelect);
 
 		$fila = mysqli_fetch_assoc($resultadoSelect);
-	
-		
-		echo "etapa de pepe alonso=" . $fila['mejinos_etapa']; 
+			
 	}
-
-
-	
-	
 
 	
 ?>
@@ -66,7 +60,7 @@ echo "estoy fuera";
 			<div class="menu">
 				<ul>
 					<?php /* Mensajito de aclaracion */?>
-					<b>	QUE HACES PERRITO:<br></b>
+					<b>	Comunidad: <?php echo $_SESSION['MEJ_COMUNIDAD']?> <br></b>
 					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
 				</ul>
 			</div>
@@ -83,12 +77,12 @@ echo "estoy fuera";
 							$d1 = new Objeto;
 							$d1->setId("1");
 							$d1->setName("VOLVER");
-							$d1->setHref("./mejinosMej.php");
+							$d1->setHref("./mejinosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 							$d1->show();
 							?>
 						</li>
 
-						<?php			//  << 5 espacios vacios >>
+						<?php	//  << 5 espacios vacios >>
 							require "./secciones/VaciaColumnaItem.php";
 						?>	
 					</ul>
@@ -96,18 +90,12 @@ echo "estoy fuera";
 			</div>
 
 			<div class="rightcolumn">
-				<div id="cajaLista">
-					<ul id="cajaLista">
-						<?php /*	MENSAJE ACLARATIO SI ES NECESARIO*/?>
-						<div class='logCenter'><b><u> - ABM -</u></b></div>					
-					</ul>
-				</div>
 					
 				<div class="menu">
 					<table>
 						<thead>
 							<tr>
-								<th>MODIFICAR</th>
+								<th><h4>MODIFICAR</h4></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -195,8 +183,7 @@ echo "estoy fuera";
 												</td>
 											</tr>
 
-											//////////////////////////////
-											<tr>
+											<tr><!-----BOTONES:------------------------>
 												<td><input type="submit" name= "actualizar" value="ACTUALIZAR" class="boton"></td>
 												<td><input type="reset"  name= "borrar" value="BORRAR" class="boton"></td>
 											</tr>
@@ -208,6 +195,7 @@ echo "estoy fuera";
 					</table>
 				</div>
 			</div>
+
 			<div class="cl"></div>
 		</div>
 	</div>
@@ -216,7 +204,7 @@ echo "estoy fuera";
 	<!-- FOOTER -->
 	<?php
 		require "./secciones/piePagina.php";
-		//mysqli_close($conn); 
+		mysqli_close($conn); 
 	?>
 </body>
 </html>

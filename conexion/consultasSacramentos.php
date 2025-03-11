@@ -6,11 +6,33 @@
 	////////////////////////////////////////////////////////////////////////
 
 	//SACRAMENTOS
-	$totalBautismo = '1';
-	$totalComunion 	= '2';
-	$totalConfirmacion 	= '3';
-	$totalMejinos 	= '4';
-	$colorSemaforo ="";
+	$totalBautismo		= '1';
+	$totalComunion		= '2';
+	$totalConfirmacion	= '3';
+	$totalNoSacramento	= '4';
+	$colorSemaforo	="";
+
+		
+		///////////////////////////////////////////////////
+		//	BAUTISMO
+		///////////////////////////////////////////////////
+		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
+		WHERE mejinos_sacramento = '".$totalNoSacramento."'
+		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
+
+		$resultado = mysqli_query($conn,$sql);
+		$fila = mysqli_fetch_assoc($resultado);
+		$totalNoSacramento = $fila['total'];
+			
+
+		if ($resultado!="") {
+			//Compruebo qeu todo sea correcto
+			//echo "El totalBautismo: " . $totalBautismo;
+			
+		}else{
+			echo "error------ en tierraBuena";
+		}
+
 
 		///////////////////////////////////////////////////
 		//	BAUTISMO

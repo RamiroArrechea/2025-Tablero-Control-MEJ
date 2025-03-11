@@ -1,6 +1,7 @@
 <div id="header">
     <div id="logo">
-        <a href="" target="_new"><img src="./asset/images/logoOficial.png" width="80" height="80" /></a>
+        <a href="https://www.popesprayer.va/es/" target="_blank"><img src="./asset/images/logoOficial.png" width="80" height="80" /></a>
+        <a href="https://www.vatican.va/content/vatican/es.html" target="_blank"><img src="./asset/images/logoPapal.png" width="80" height="80" /></a>
     </div>
     <h3><span class="neutro"><a href="index.php">Tablero de Control</a></span></h3>
     

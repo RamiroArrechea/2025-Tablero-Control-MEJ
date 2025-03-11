@@ -6,9 +6,7 @@
 		<li><?php
 			$i1 = new Objeto;
 			$i1->setId("1");
-			//$i1->setClase("");
 			$i1->setName('TIERRA BUENA');
-			//$i1->setHref('');
 			$i1->showDetalle();
 			?>
 		</li>

@@ -5,7 +5,7 @@
 	session_start(); 
 	session_id(); 
 	
-	$_SESSION['usuario'] = "Rama";
+	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 	
 	$_SESSION['ID_COMUNIDAD'];

@@ -7,7 +7,7 @@
 	# Establesco la conexion con la base de datos.
 	//include "../conexion/conexionDB.php";
 	
-	$_SESSION['usuario'] = "Rama";
+	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 
 	$_SESSION['ID_COMUNIDAD'];
@@ -69,7 +69,7 @@
 							$d0->show();
 							?>
 						</li>
-						<?php	include "./secciones/EspaciosColumnaItem.php";   ?>
+						<?php	include "./secciones/ColumnaItem.php";   ?>
 						
 					</ul>
 				</div>

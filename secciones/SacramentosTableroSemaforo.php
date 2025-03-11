@@ -25,6 +25,24 @@
 	}
 ?>
 		<li><?php
+			//NO SACRAMENTO";
+			if($setName == "verde" || $totalNoSacramento > '0'){
+				$sem0 = new Objeto;
+				$sem0->setName("verde");
+				$sem0->setClase("");
+				$sem0->setHref("./asset/images/semaforos/");
+				$sem0->showSemaforo();
+			}
+			else{
+				$sem0 = new Objeto;
+				$sem0->setName('off');
+				$sem0->setClase("");
+				$sem0->setHref("./asset/images/semaforos/");
+				$sem0->showSemaforo();
+			}
+			?>
+		</li>
+		<li><?php
 			//BAUTISMO";
 			if($setName == "verde" || $totalBautismo > '0'){
 				$sem1 = new Objeto;

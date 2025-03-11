@@ -7,6 +7,22 @@
 ?>
 
 		<li><?php
+			//NO TIENE";
+			if($totalNoSacramento > '0'){
+				$per0 = new Objeto;
+				$per0->setName($totalNoSacramento);
+				$per0->setClase("");
+				$per0->showDetalle();
+			}
+			else{
+				$per0 = new Objeto;
+				$per0->setName('--');
+				$per0->setClase("");
+				$per0->showDetalle();
+			}
+			?>
+		</li>
+		<li><?php
 			//BAUTISMO";
 			if($totalBautismo > '0'){
 				$per1 = new Objeto;

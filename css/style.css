@@ -325,9 +325,12 @@ ul.nav-sub li a {	list-style:none;	display:block;	padding: 6px 5px 6px 5px;	heig
 	width:15%; float:left; 
 	background:#e4ebf8 url(../images/center-blue.png) repeat-y left top; }  
 	
- .rightcolumn{	
+ 
+.rightcolumn{	
 	width:85%; float:right; 
 	background:#f6f6f6 url(../images/center-bcg.png) repeat-y right top;}
+
+
 
  .tituloItem{	width:85%; float:right; background:#f6f6f6 url(../images/center-bcg.png) repeat-y right top;
 				border-bottom: 2px solid #b3c1db;border-top: 2px solid #b3c1db;}

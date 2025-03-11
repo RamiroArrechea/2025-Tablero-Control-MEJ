@@ -5,18 +5,25 @@
 	session_start(); 
 	session_id(); 
 	/* Incluyo la referencia a la clase.*/	
-	$_SESSION['usuario'] = "Rama";
+	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 
+	$_SESSION['ID_COMUNIDAD'];
+	$_SESSION['MEJ_COMUNIDAD'];
+	
 	/* Incluyo la referencia a la clase.*/
 	require "./funciones/claseProyecto.php";
 
 	require "./conexion/conexionDB.php";
 
-	$sqlSelect = "SELECT * FROM `mejinos`;";
+	///////////////////////////////////////////////////////////////////////////
+	// Como la llamada es esta sola, la escribi aca, para no hacer otro archivo
+	// pero toda las llamadas deberian estar en CONEXION 
+	$sqlSelect = "SELECT * FROM `mejinos`
+	where mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
 	
 	$resultado = mysqli_query($conn,$sqlSelect);
-
+	////////////////////////////////////////////////////////////////////////////
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

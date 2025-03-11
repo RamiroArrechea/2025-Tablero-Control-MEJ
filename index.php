@@ -17,7 +17,7 @@
 	session_start(); 
 	session_id(); 
 	
-	$_SESSION['usuario'] = "Rama";
+	$_SESSION['usuario'] = "Hola Mej";
 	$_SESSION['cargo'] = "root";
 
 	# Antes que nada, Conectamos la DB y a las funciones
@@ -63,21 +63,7 @@
 				<ul>
 					<?php 
 					/*	Primer Tabla con descripcion del  PROYECTOS!!!
-						De ser necesario, cambiar los datos desde el archivo descripcionProyecto
-					*/
-					switch($_SESSION['MEJ_COMUNIDAD']){
-						case 1:
-							echo "ESTOY EM MEJ SOLANO";
-							break;
-						case 2:
-							echo "ESTOY EM MEJ ITAIT";
-							break;
-						default:
-						echo "ESTOY en otro";
-							break;
-
-					}
-					
+					*/			
 					?>
 					<b>	Descripcion:<br></b>
 					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.

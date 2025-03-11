@@ -9,8 +9,6 @@
 			$i2->setId("2");
 			$i2->setClase("");
 			
-			echo $_SESSION['COLUMNA_ACTIVADA'];
-
 			if($_SESSION['ESPACIOS'] == "true"){ $i2->setName('ESPACIOS');
 			}elseif($_SESSION['ETAPAS'] == "true"){ $i2->setName('ETAPAS');
 			}elseif($_SESSION['SACRAMENTOS'] == "true"){ $i2->setName('SACRAMENTOS');}

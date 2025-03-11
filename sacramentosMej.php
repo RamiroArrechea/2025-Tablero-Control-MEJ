@@ -5,7 +5,7 @@
 	session_start(); 
 	session_id(); 
 	
-	$_SESSION['usuario'] = "Rama";
+	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 
 	$_SESSION['ID_COMUNIDAD'];
@@ -13,7 +13,7 @@
 
 	//columnas	
 	$_SESSION['ESPACIOS']		="false";
-	$_SESSION['ESTAPAS']		="false";
+	$_SESSION['ETAPAS']			="false";
 	$_SESSION['SACRAMENTOS']	="false";
 	$_SESSION['MEJ_CUMPLEANIOS'] ="false";
 
@@ -75,14 +75,13 @@
 							$_SESSION['SACRAMENTOS'] = "true";
 							include "./secciones/ColumnaItem.php";   ?>
 							
-						
 					</ul>
 				</div>
 			</div>
 
 			<div class="rightcolumn">
 				<div id="cajaLista">
-					<ul id="cajaLista">
+					<ul id="etapasLista">
 						<?php /*	Detalle de los Items en la parte superior del tablero !!!
 								De ser necesario, cambiar los datos desde el archivo listaItem
 						*/?>
@@ -93,11 +92,11 @@
 			</div>
 			<div class="rightcolumn">
 				<div id="cajaLista">
-					<ul id="cajaLista">
+					<ul id="etapasLista">
 						<!---------------TODOS-los-Renglones-------------------------->
 						<?php	include "./secciones/SacramentosTableroSemaforo.php";   ?>
 					</ul>
-					<ul id="cajaLista">
+					<ul id="etapasLista">
 						<?php	include "./secciones/SacramentosListaCantidadJovenes.php";   ?>
 					</ul>
 				</div>

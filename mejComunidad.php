@@ -7,12 +7,12 @@
 	# Establesco la conexion con la base de datos.
 	//include "../conexion/conexionDB.php";
 	
-	$_SESSION['usuario'] = "Rama";
+	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 
 	//columnas	
 	$_SESSION['ESPACIOS']		="false";
-	$_SESSION['ESTAPAS']		="false";
+	$_SESSION['ETAPAS']			="false";
 	$_SESSION['SACRAMENTOS']	="false";
 	$_SESSION['MEJ_CUMPLEANIOS'] ="false";
 

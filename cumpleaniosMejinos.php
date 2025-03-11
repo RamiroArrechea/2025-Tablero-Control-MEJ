@@ -5,7 +5,7 @@
 	session_start(); 
 	session_id(); 
 	
-	$_SESSION['usuario'] = "Rama";
+	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 
 	$_SESSION['ID_COMUNIDAD'];
@@ -84,9 +84,7 @@
 			<div class="rightcolumn">
 				<div id="cajaLista">
 					<ul id="cajaLista">
-						<?php /*	Detalle de los Items en la parte superior del tablero !!!
-								De ser necesario, cambiar los datos desde el archivo listaItem
-						*/?>
+						<?php /*	COMENTARIO		*/?>
 							<div class='logCenter'><b>CUMPLEN AÑOS ESTE MES:</b></div>
 					</ul>
 				</div>

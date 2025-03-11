@@ -5,7 +5,14 @@
 */
 	
 ?>
-
+		<li><?php
+			$i1 = new Objeto;
+			$i1->setId("5");
+			$i1->setName('CALENDARIO ACTIVIDADES');
+			$i1->setHref("./calendarioActividades.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
+			$i1->show();
+			?>
+		</li>
 		<li><?php
 			$i2 = new Objeto;
 			$i2->setId("1");
@@ -46,4 +53,3 @@
 			$i6->show();
 			?>
 		</li>
-

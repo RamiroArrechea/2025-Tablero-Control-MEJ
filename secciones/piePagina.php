@@ -40,7 +40,7 @@
 			}
 		?>
         <div class="col one_third no_margin_right">
-            Copyright © 2024 <a href="" target="_new">MEJ</a>
+            Copyright © 2025 <a href="" target="_new">MEJ</a>
         </div>
 
 		<div class="cl"></div>
