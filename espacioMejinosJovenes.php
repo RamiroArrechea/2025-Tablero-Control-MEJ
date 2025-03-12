@@ -81,7 +81,10 @@
 						<?php /*	Detalle de los Items en la parte superior del tablero !!!
 								De ser necesario, cambiar los datos desde el archivo listaItem
 						*/?>
-						<?php	include "./secciones/EspaciosListaItem.php";   ?>
+						<?php	
+							$_SESSION['DETALLE_ESPACIO'] = "true";
+							include "./secciones/EspaciosListaItem.php";   
+						?>
 						<div class='logCenter'></div>
 					</ul>
 				</div>

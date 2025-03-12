@@ -7,28 +7,32 @@
 			$i1 = new Objeto;
 			$i1->setId("1");
 			$i1->setName('No tiene');
-			$i1->showDetalle();
+			$i1->setHref('./sacramentosNoTiene.php');			
+			$i1->show();
 			?>
 		</li>
 		<li><?php
 			$i2 = new Objeto;
 			$i2->setId("2");
 			$i2->setName('BAUTISMO');
-			$i2->showDetalle();
+			$i2->setHref('./sacramentosBautismo.php');
+			$i2->show();
 			?>
 		</li>
 		<li><?php
 			$i3 = new Objeto;
 			$i3->setId("3");
 			$i3->setName('COMUNION');
-			$i3->showDetalle();
+			$i3->setHref('./sacramentosComunion.php');
+			$i3->show();
 			?>
 		</li>
 		<li><?php
 			$i4 = new Objeto;
 			$i4->setId("4");
 			$i4->setName('CONFIRM.');
-			$i4->showDetalle();
+			$i4->setHref('./sacramentosConfirmacion.php');
+			$i4->show();
 			?>
 		</li>
 		<li><?php

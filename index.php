@@ -34,7 +34,6 @@
 	$_SESSION['SEM_ESPACIOS'] = "off";
 	$_SESSION['SEM_ETAPAS'] 	= "off";
 	$_SESSION['SEM_SACRAMENTOS'] = "off";
-
 	
 ?>
 

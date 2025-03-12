@@ -7,7 +7,7 @@
 		<?php
 			switch ($_SESSION['cargo']){
 				case 'root':
-				echo $_SESSION['cargo'] ;
+				//echo $_SESSION['cargo'] ;
 		?>
 				<div class="col one_third">
 					<a href="./index.php">INICIO</a>::

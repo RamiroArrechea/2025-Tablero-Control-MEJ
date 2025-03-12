@@ -4,8 +4,6 @@
 	# Antes que nada, inicializamos una sesion
 	session_start(); 
 	session_id(); 
-	# Establesco la conexion con la base de datos.
-	//include "../conexion/conexionDB.php";
 	
 	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
@@ -17,7 +15,7 @@
 	require "./funciones/claseProyecto.php";
 
 	require "./conexion/conexionDB.php";
-	require "./conexion/consultasMejinosEspacio.php";
+	require "./conexion/consultasSacramentos.php";
 
 		
 ?>
@@ -46,7 +44,7 @@
 		<div id="table">	<!-- TABLA DETALLE DEL PROYECTO-->
 			<div class="menu">
 				<ul>
-					<?php /* Primer Tabla con descripcion del  PROYECTOS!!!
+					<?php /*agregar comentario de ser necesario
 					*/?>
 					<b>	Comunidad: <?php echo $_SESSION['MEJ_COMUNIDAD']?> <br></b>
 					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
@@ -64,10 +62,10 @@
 							$d0 = new Objeto;
 							$d0->setId("1");
 							$d0->setName("<b>VOLVER</b>");
-							$d0->setHref("./espaciosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
+							$d0->setHref("./sacramentosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 							$d0->show();
 							?>
-						</li>						
+						</li>
 						<?php	
 							$_SESSION['DETALLE_ESPACIO'] = "true";
 							include "./secciones/ColumnaItem.php";   
@@ -78,13 +76,12 @@
 			</div>
 
 			<div class="rightcolumn">
-				<div id="cajaLista">
-					<ul id="cajaLista">
+				<div id="etapasLista">
+					<ul id="etapasLista">
 						<?php /*	Detalle de los Items en la parte superior del tablero !!!
-								De ser necesario, cambiar los datos desde el archivo listaItem
 						*/?>
-						<?php	include "./secciones/EspaciosListaItem.php";   ?>
-						<div class='logCenter'></div>
+						<?php	include "./secciones/SacramentosListaItem.php";	?>
+						<div class='logCenter'></div>						
 					</ul>
 				</div>
 			</div>
@@ -105,20 +102,20 @@
 						</thead>
 						<tbody>
 							<?php	
-								while($filaPre = mysqli_fetch_assoc($resultadoPre)){
+								while($filaComunion = mysqli_fetch_assoc($resultadoComunion)){
 							?>
 							<tr>
-								<!-- <td> <?php //echo $filaJunior['mejinos_id'] ?> </td>--> 
-								<td> <?php echo $filaPre['mejinos_apellido'] ?> </td>
-								<td> <?php echo $filaPre['mejinos_nombre'] ?> 	</td>
-								<td> <?php echo $filaPre['mejinos_fechaNac'] ?> </td>
-								<td> <?php echo $filaPre['edad'] ?> </td> <!-- LINEA AGREGADA POR QUERY--> 
+								<!-- <td> <?php //echo $$filaNoTiene['mejinos_id'] ?> </td>--> 
+								<td> <?php echo $filaComunion['mejinos_apellido'] ?> 	</td>
+								<td> <?php echo $filaComunion['mejinos_nombre'] ?>		</td>
+								<td> <?php echo $filaComunion['mejinos_fechaNac'] ?>	</td>
+								<td> <?php echo $filaComunion['edad'] ?> 	</td> <!-- LINEA AGREGADA POR QUERY--> 
 								<td> 
 									<?php 
 									//echo $filas['mejinos_etapa'] 
-									switch ($filaPre['mejinos_etapa']){
+									switch ($filaComunion['mejinos_etapa']){
 										case 1:	echo "TB.";			break;
-										case 2:	echo "Semilla.";		break;
+										case 2:	echo "Semilla.";	break;
 										case 3:	echo "Amigos.";		break;
 										case 4:	echo "Disc.";		break;
 										case 5:	echo "Apo.";		break;
@@ -131,7 +128,7 @@
 								<td> 
 									<?php 
 									//echo $filas['mejinos_comunidad'] 
-									switch ($filaPre['mejinos_comunidad']){
+									switch ($filaComunion['mejinos_comunidad']){
 										case 1:	echo "Solano";		break;
 										case 2:	echo "Itatí";		break;
 										case 3:	echo "B.Pastor";	break;
@@ -143,7 +140,7 @@
 								<td> 
 									<?php 
 									//echo $filas['mejinos_sacramento'] 
-									switch ($filaPre['mejinos_sacramento']){
+									switch ($filaComunion['mejinos_sacramento']){
 										case 1:	echo "BAUTISMO";		break;
 										case 2:	echo "Comunión.";		break;
 										case 3:	echo "Confirmación.";	break;

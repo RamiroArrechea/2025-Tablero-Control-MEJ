@@ -60,7 +60,6 @@
 			<div class="leftcolumn">
 				<div id="navvy">
 					<ul id="navvylist">
-						<?php /* Mensajito de aclaracion */?>
 						<li><?php		//
 							$d0 = new Objeto;
 							$d0->setId("1");
@@ -69,8 +68,11 @@
 							$d0->show();
 							?>
 						</li>
-						<?php	include "./secciones/ColumnaItem.php";   ?>
-						
+						<?php	
+							$_SESSION['DETALLE_ESPACIO'] = "true";
+							include "./secciones/ColumnaItem.php";   
+						?>
+						<div class='logCenter'></div>
 					</ul>
 				</div>
 			</div>

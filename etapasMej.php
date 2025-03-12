@@ -18,7 +18,7 @@
 	$_SESSION['ESTAPAS']		="false";
 	$_SESSION['SACRAMENTOS']	="false";
 	$_SESSION['MEJ_CUMPLEANIOS'] ="false";
-
+	$_SESSION['DETALLE_ESPACIO'] = "false";
 
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";

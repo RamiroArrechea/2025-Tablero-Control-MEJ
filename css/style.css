@@ -395,6 +395,8 @@ ul.nav-sub li a {	list-style:none;	display:block;	padding: 6px 5px 6px 5px;	heig
 	border-top:0px solid #b3c1db; }
  /* border-color:#b3c1db #0A0A0A #b3c1db #1f3d71; */ /*--------- bordes quitados --------------*/
 
+ ul#etapasLista { width:100%; margin:0; text-align:left; list-style:none; padding:0; }
+ 
  ul#etapasLista li{ 
 	display:inline; width:16%; margin:0; 
 	height:50px; float:left; padding:11px 0 0 0; text-align:center;

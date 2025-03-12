@@ -14,7 +14,7 @@
 
 		
 		///////////////////////////////////////////////////
-		//	BAUTISMO
+		//	NO TIENE
 		///////////////////////////////////////////////////
 		$sql = "SELECT count(*) as 'total' FROM `mejinos` 
 		WHERE mejinos_sacramento = '".$totalNoSacramento."'
@@ -93,6 +93,104 @@
 		}else{
 			echo "error------ en tierraBuena";
 		}
+
+
+		///////////////////////////////////////////////////
+		//	DETALLE DE CADA CADA
+		///////////////////////////////////////////////////
+		$Bautismo		= '1';
+		$Comunion		= '2';
+		$Confirmacion	= '3';
+		$NoSacramento	= '4';
+		
+		
+		
+
+		///////////////////////////////////////////////////
+		//	NO TIENE
+		///////////////////////////////////////////////////
+		$sql = "SELECT *, 
+			TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
+		FROM mejinos
+		WHERE mejinos_sacramento = $NoSacramento
+		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		ORDER BY mejinos_id;";
+		
+		$resultadoNoTiene = mysqli_query($conn,$sql);
+
+		if ($resultadoNoTiene!="") {
+			//Compruebo qeu todo sea correcto
+			//echo "El totalBautismo: " . $totalBautismo;
+			
+		}else{
+			echo "error------ en tierraBuena";
+		}
+
+
+		///////////////////////////////////////////////////
+		//	Bautismo
+		///////////////////////////////////////////////////
+		$sql = "SELECT *, 
+			TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
+		FROM mejinos
+		WHERE mejinos_sacramento = $Bautismo
+		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		ORDER BY mejinos_id;";
+		
+		$resultadoBautismo = mysqli_query($conn,$sql);
+
+		if ($resultadoBautismo!="") {
+			//Compruebo qeu todo sea correcto
+			//echo "El totalBautismo: " . $totalBautismo;
+			
+		}else{
+			echo "error------ en tierraBuena";
+		}
+
+
+		///////////////////////////////////////////////////
+		//	Comunion
+		///////////////////////////////////////////////////
+		$sql = "SELECT *, 
+			TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
+		FROM mejinos
+		WHERE mejinos_sacramento = $Comunion
+		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		ORDER BY mejinos_id;";
+		
+		$resultadoComunion = mysqli_query($conn,$sql);
+
+		if ($resultadoComunion!="") {
+			//Compruebo qeu todo sea correcto
+			//echo "El totalBautismo: " . $totalBautismo;
+			
+		}else{
+			echo "error------ en tierraBuena";
+		}
+
+
+		///////////////////////////////////////////////////
+		//	Confirmacion
+		///////////////////////////////////////////////////
+		$sql = "SELECT *, 
+			TIMESTAMPDIFF(YEAR, mejinos_fechaNac, CURDATE()) AS edad
+		FROM mejinos
+		WHERE mejinos_sacramento = $Confirmacion
+		AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
+		ORDER BY mejinos_id;";
+		
+		$resultadoConfirmacion = mysqli_query($conn,$sql);
+
+		if ($resultadoConfirmacion!="") {
+			//Compruebo qeu todo sea correcto
+			//echo "El totalBautismo: " . $totalBautismo;
+			
+		}else{
+			echo "error------ en tierraBuena";
+		}
+
+
+
 
 
 		///////////////////////////////////////////////////

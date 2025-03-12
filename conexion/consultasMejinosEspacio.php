@@ -22,8 +22,7 @@
 				AND mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."' 
 				ORDER BY mejinos_id;";
 
-		$resultadoJunior = mysqli_query($conn,$sql);
-			
+		$resultadoJunior = mysqli_query($conn,$sql);			
 
 		if ($resultadoJunior!="") {
 			//Compruebo qeu todo sea correcto

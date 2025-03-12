@@ -69,8 +69,11 @@
 							$d0->show();
 							?>
 						</li>
-						<?php	include "./secciones/ColumnaItem.php";   ?>
-						
+						<?php	
+							$_SESSION['DETALLE_ESPACIO'] = "true";
+							include "./secciones/ColumnaItem.php";   
+						?>
+						<div class='logCenter'></div>
 					</ul>
 				</div>
 			</div>

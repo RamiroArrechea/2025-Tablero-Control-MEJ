@@ -9,17 +9,21 @@
 			$i2->setId("2");
 			$i2->setClase("");
 			
-			if($_SESSION['ESPACIOS'] == "true"){ $i2->setName('ESPACIOS');
-			}elseif($_SESSION['ETAPAS'] == "true"){ $i2->setName('ETAPAS');
-			}elseif($_SESSION['SACRAMENTOS'] == "true"){ $i2->setName('SACRAMENTOS');}
-					
+			if($_SESSION['DETALLE_ESPACIO'] == "true"){
+				$i2->setName('');
+			}else{
+				if($_SESSION['ESPACIOS'] == "true"){ $i2->setName('ESPACIOS');
+				}elseif($_SESSION['ETAPAS'] == "true"){ $i2->setName('ETAPAS');
+				}elseif($_SESSION['SACRAMENTOS'] == "true"){ $i2->setName('SACRAMENTOS');}
+			}	
+
 			$i2->show();
 			?>
 		</li>
 		<li><?php
 			$i3 = new Objeto;
 			$i3->setId("3");
-			if($_SESSION['MEJ_CUMPLEANIOS'] == "true"){
+			if($_SESSION['MEJ_CUMPLEANIOS'] == "true" || $_SESSION['DETALLE_ESPACIO'] == "true" ){
 				$i3->setName('');
 			}
 			else{
