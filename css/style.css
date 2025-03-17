@@ -1,6 +1,42 @@
-/*BODY*/
+/* Estilos base */
+body {
+    font-size: 16px;
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Estilos para pantallas grandes (desktops) */
+@media only screen and (min-width: 1025px) {
+    .container {
+        width: 60%;
+        margin: 0 auto;
+    }
+} 
+ 
+ 
+ 
+ /*BODY*/
 * { padding: 0px; margin: 0px; outline: 0; }
-body, html { height: 100%; }
+
+/*body, html { height: 100%; }*/
+
 body {
 	margin: 0;
 	padding: 0;	
@@ -10,16 +46,13 @@ body {
 	line-height: 1.4em;
 	background-image:url(../images/bg-body.jpg) repeat;
 	background-color:#EDEDED;
-    	z-index:-1;
+    z-index:-1;
 }
 
 .notFilled{	border: 2px solid #f00; background: #f99;	}
 
-.select_sem
-{
-
+.select_sem{
     margin-left: 15px;
-
 }
 
 /*select { background: white;}*/

@@ -8,8 +8,8 @@
 	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 	
-	$_SESSION['ID_COMUNIDAD'];
-	$_SESSION['MEJ_COMUNIDAD'];
+	//$_SESSION['ID_COMUNIDAD'];
+	//$_SESSION['MEJ_COMUNIDAD'];
 
 	//columnas	
 	$_SESSION['ESPACIOS']		="false";
@@ -17,8 +17,14 @@
 	$_SESSION['SACRAMENTOS']	="false";
 	$_SESSION['MEJ_CUMPLEANIOS'] ="false";
 	
+	# deprecado  
+	require "./funciones/claseProyecto.php";   //(PARA EL RAMA: LUEGO HABILITAR)
+
 	# Antes que nada, Conectamos la DB y a las funciones
-	require "./funciones/claseProyecto.php";
+	//require "./conexion/conexionDB.php";
+	//require "./conexion/consultaCalendario.php";
+
+	echo $_SESSION['ID_COMUNIDAD'];
 
 ?>
 
@@ -29,7 +35,7 @@
 ?>
 
   	<!------	abm del ABM---------------->
-    <link href="../../../css/styleCalendario.css"	type="text/css" rel="stylesheet" />
+    <link href="./css/styleCalendario.css"	type="text/css" rel="stylesheet" />
 
 <body>
 	<div id="wrapper">
@@ -56,9 +62,11 @@
 		<!------------------------------------------------------------------------>
 		<!-- CONTENIDO --> 
 		<div id="table">	<!-- TABLA -->
+			<!-- Reemplaza esta sección en tu código -->
 			<div class="calendarcolumn">
-				<div id="cajaListaCalendar">
-				<!-- Enlaces de navegación -->
+				<!-- Primera fila: botón VOLVER y título -->
+				<div class="calendar-top-row">
+					<!-- Enlaces de navegación (botón VOLVER) -->
 					<ul id="cajaListaCalendar">
 						<li>
 							<?php
@@ -70,28 +78,26 @@
 							?>
 						</li>
 					</ul>
-			
+
 					<!-- Encabezado del calendario -->
 					<div class='logCalendar'>
-						<h2>Calendario de Eventos</h2>
+						<h2>Calendario de Actividades</h2>
 					</div>
-			
-					<!-- Resto del contenido del calendario -->
+				</div>
+
+				<!-- Segunda fila: controles del calendario -->
+				<div class="calendar-header">
+					<div class="calendar-controls">
+						<button id="prev-month">Anterior</button>
+						<span class="month-year" id="month-year"></span>
+						<button id="next-month">Siguiente</button>
+					</div>
+					<button id="add-event-btn">Agregar Evento</button>
 				</div>
 			</div>
-            
 
-            <div class="calendar-header">
-                <div class="calendar-controls">
-					<button id="prev-month">Anterior</button>
-                    <span class="month-year" id="month-year"></span>
-                    <button id="next-month">Siguiente</button>
-                </div>
-
-                <button id="add-event-btn">Agregar Evento</button>
-            </div>
-    
-            <div class="calendar" id="calendar"></div>
+			<!-- Calendario -->
+			<div class="calendar" id="calendar"></div>
     
             <!-- Modal para añadir eventos -->
             <div id="event-modal" class="modal">

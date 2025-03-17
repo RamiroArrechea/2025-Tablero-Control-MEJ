@@ -1,163 +1,176 @@
-
-body {
-    font-family: Arial, sans-serif;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-.calendar-header {
-    clear: both; /* Asegura que no haya elementos flotantes anteriores */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.calendar-controls {
-    display: flex;
-    border: black 1px solid;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.calendar-controls button {
-    width: 30%;  /* Puedes ajustar este porcentaje según prefieras */
-}
-
-.month-year {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    width: 40%;  /* El resto del espacio */
-}
+/* Estilos generales del calendario */
 .calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    margin-bottom: 20px;
-}
-
-.day-header {
-    text-align: center;
-    font-weight: bold;
-    padding: 10px;
-    background-color: #f0f0f0;
-}
-.day {
-    min-height: 80px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    position: relative;
-}
-
-div#cajaListaCalendar {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
 }
 
-/* Lista de enlaces (incluyendo "VOLVER") */
-ul#cajaListaCalendar {
-    position: absolute;
-    top: 15px; /* Ajustar según sea necesario */
-    left: 15px;
+/* Estilo para el contenedor principal dividido en dos filas */
+.calendarcolumn {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Primera fila: botón VOLVER y título */
+.calendar-top-row {
+    display: flex;
+    align-items: center;
+    margin: 15px 10px 20px 10px; /* Margen superior, derecho, inferior e izquierdo */
+    position: relative; /* Importante para posicionamiento absoluto del título */
+    padding: 5px; /* Espacio interior adicional */
+}
+
+/* Ajustes para la lista que contiene el botón VOLVER */
+#cajaListaCalendar {
+    display: inline-block;
     margin: 0;
     padding: 0;
     list-style: none;
-    z-index: 10; /* Para que esté por encima del título */
+    width: auto;
+    z-index: 1; /* Asegura que esté por encima del título para ser clickeable */
 }
 
-.logCenterCalendar {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px; /* Espacio entre el título y los controles */
+#cajaListaCalendar li {
+    display: inline-block;
 }
 
-/* Definimos .logCalendar para asegurar un centrado perfecto */
+/* Ajustes para el título CENTRADO */
 .logCalendar {
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    border-width: 1px;
-    border-color: #b3c1db #0A0A0A #b3c1db #1f3d71;
-    color: #1f3d71;
-    border-bottom: 2px solid #b3c1db;
-    background: #f6f6f6 url(../images/center-bcg.png);
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 0; /* Por debajo del botón VOLVER */
 }
 
 .logCalendar h2 {
     margin: 0;
     padding: 0;
-    text-align: center;
-    transform: translateX(15px); /* Desplazamiento de 15px hacia la derecha */
+    display: inline-block;
 }
 
-* Para el título en sí */
-.logCalendarTitle {
-    width: 100%;
-}
-
-.logCalendarTitle h2 {
-    margin: 0;
-    text-align: center;
-}
-
-/* Estructura general */
-.calendarcolumn {    
-    width: 100%;
-    background: #f6f6f6 url(../images/center-bcg.png) repeat-y right top;
-    position: relative; /*BOORAR */
-}
-
-.logCenter h2 {
-    margin: 0;
+/* Segunda fila: controles del calendario */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
+    margin: 0;
+}
+
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.month-year {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Conservar los estilos originales para el resto */
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th {
+    background-color: #00366c;  /* Azul oscuro para los encabezados de los días */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.calendar td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    height: 100px;
+    vertical-align: top;
+}
+
+.calendar td.today {
+    background-color: #f0f9ff;
+    border: 2px solid #007bff;
+}
+
+.calendar td.other-month {
+    background-color: #f5f5f5;
+    color: #aaa;
 }
 
 .day-number {
     font-weight: bold;
     margin-bottom: 5px;
+    display: block;
 }
-.other-month {
-    background-color: #f5f5f5;
-    color: #999;
-}
-.today {
-    background-color: #e8f4ff;
-}
-.has-events {
-    background-color: #e0ffe0;
-}
+
+/* Estilos para eventos */
 .event {
+    background-color: #e6f2ff;
+    border-left: 3px solid #007bff;
+    padding: 3px 5px;
+    margin-bottom: 3px;
+    border-radius: 2px;
     font-size: 12px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 2px 5px;
-    margin-bottom: 2px;
-    border-radius: 3px;
     cursor: pointer;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
+.event:hover {
+    background-color: #cce5ff;
+}
+
+/* Estilos para botones - manteniendo los originales */
+button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#add-event-btn {
+    background-color: #007bff; /* Celeste igual que los otros botones */
+    margin-left: 10px;
+}
+
+#add-event-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Resto de estilos originales para modales */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
 }
+
 .modal-content {
     background-color: white;
     margin: 10% auto;
@@ -165,7 +178,9 @@ ul#cajaListaCalendar {
     border-radius: 5px;
     width: 50%;
     max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .close {
     color: #aaa;
     float: right;
@@ -173,43 +188,36 @@ ul#cajaListaCalendar {
     font-weight: bold;
     cursor: pointer;
 }
+
+.close:hover {
+    color: black;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
-label {
+
+.form-group label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
-input, textarea {
+
+.form-group input, .form-group textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #45a049;
-}
-.event-details {
-    margin-top: 10px;
-}
-.event-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-.delete-btn {
-    background-color: #f44336;
-}
-.delete-btn:hover {
-    background-color: #d32f2f;
+    border-radius: 3px;
 }
 
+.event-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.event-details {
+    margin: 15px 0;
+    max-height: 150px;
+    overflow-y: auto;
+}

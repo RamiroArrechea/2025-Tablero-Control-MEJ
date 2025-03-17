@@ -1,0 +1,45 @@
+Datos recibidos: {"fecha":"2025-03-04","titulo":"dia4","descripcion":"","id":null}
+Datos decodificados: Array
+(
+    [fecha] => 2025-03-04
+    [titulo] => dia4
+    [descripcion] => 
+    [id] => 
+)
+
+Datos recibidos: {"fecha":"2025-03-04","titulo":"dia4","descripcion":"primer mensaje","id":null}
+Datos decodificados: Array
+(
+    [fecha] => 2025-03-04
+    [titulo] => dia4
+    [descripcion] => primer mensaje
+    [id] => 
+)
+
+Datos recibidos: {"fecha":"2025-03-04","titulo":"sdsd","descripcion":"1er evento","id":null}
+Datos decodificados: Array
+(
+    [fecha] => 2025-03-04
+    [titulo] => sdsd
+    [descripcion] => 1er evento
+    [id] => 
+)
+
+Datos recibidos: {"fecha":"2025-03-05","titulo":"lllll","descripcion":"","id":null}
+Datos decodificados: Array
+(
+    [fecha] => 2025-03-05
+    [titulo] => lllll
+    [descripcion] => 
+    [id] => 
+)
+
+Datos recibidos: {"fecha":"2025-03-04","titulo":"rara","descripcion":"","id":null}
+Datos decodificados: Array
+(
+    [fecha] => 2025-03-04
+    [titulo] => rara
+    [descripcion] => 
+    [id] => 
+)
+

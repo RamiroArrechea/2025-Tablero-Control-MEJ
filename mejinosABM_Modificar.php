@@ -16,7 +16,7 @@
 
 
 	if(!isset($_POST['enviar']) ){
-		echo "estoy dentro";
+		//echo "estoy dentro";
 		$id= $_GET['id'];
 					
 		//$id= $_GET['id'];

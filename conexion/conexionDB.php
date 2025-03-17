@@ -15,17 +15,17 @@
 	$conn ="";
 
 		
-	try{
-		$conn = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
-
-		if($conn!=""){
-			//echo "CONECTADO SISTEMA";
+	try {
+		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+		if($conn->connect_error) {
+			throw new Exception("Error de conexión: " . $conn->connect_error);
 		}
-	}catch(Exception $ex){
+		echo "RAMA ENTRE";
+	} catch(Exception $ex) {
 		echo $ex->getMessage();
-		//echo "NO CONECTADO SISTEMA";
+		error_log("Error de conexión: " . $ex->getMessage());
 	}
-
+	
 
 
 ?>
