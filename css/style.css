@@ -30,7 +30,15 @@ body {
     }
 } 
  
- 
+html {
+	font-size: 16px;
+  }
+  
+  @media (max-width: 767px) {
+	html {
+	  font-size: 14px;
+	}
+  }
  
  /*BODY*/
 * { padding: 0px; margin: 0px; outline: 0; }
@@ -205,7 +213,11 @@ a.more { display: inline-block; width: 80px; height: 22px; line-height: 22px; te
 
 /*??????*/
 p { margin: 0 0 10px 0; padding: 0; }
-img { border: none; }
+img, video, iframe {
+	max-width: 100%;
+	height: auto;
+  }
+  
 blockquote { font-style: italic; margin: 0 0 0 10px;}
 cite { font-weight: bold; color:#dc600d; }
 cite a, cite a:link, cite a:visited  { font-size: 12px; text-decoration: none; font-style: normal }
@@ -353,6 +365,8 @@ ul.nav-sub li a {	list-style:none;	display:block;	padding: 6px 5px 6px 5px;	heig
 
  #table-footer { width:100%; padding: 8px 0 8px 0; font-size: 10px; color:#8a8a8a; margin:0;
 					background: #f6f6f6 url(../images/center-bcg.png) repeat-y right top;	}
+
+.table-responsive { overflow-x: auto; }
 
  .leftcolumn{
 	width:15%; float:left; 
