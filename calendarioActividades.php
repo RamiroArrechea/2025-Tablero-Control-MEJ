@@ -22,9 +22,6 @@
 
 	# Antes que nada, Conectamos la DB y a las funciones
 	//require "./conexion/conexionDB.php";
-	//require "./conexion/consultaCalendario.php";
-
-	echo $_SESSION['ID_COMUNIDAD'];
 
 ?>
 

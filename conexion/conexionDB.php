@@ -20,7 +20,7 @@
 		if($conn->connect_error) {
 			throw new Exception("Error de conexión: " . $conn->connect_error);
 		}
-		echo "RAMA ENTRE";
+		
 	} catch(Exception $ex) {
 		echo $ex->getMessage();
 		error_log("Error de conexión: " . $ex->getMessage());
