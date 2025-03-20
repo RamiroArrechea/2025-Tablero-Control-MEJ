@@ -14,7 +14,7 @@
 	
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 	require "./secciones/head.php";
@@ -38,8 +38,8 @@
 					<?php /*Primer Tabla con descripcion del  PROYECTOS!!!
 							De ser necesario, cambiar los datos desde el archivo descripcionProyecto
 					*/?>
-					<b>	QUE HACES PERRITO:<br></b>
-					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
+					<b>	Detalle:<br></b>
+					Esta pantalla esta orientada para visualizar rapidamente datos importantes para nosotros.
 				</ul>
 			</div><!-- menu -->
 			<div class="cl"></div>

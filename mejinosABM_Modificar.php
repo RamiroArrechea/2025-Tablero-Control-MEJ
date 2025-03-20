@@ -31,7 +31,7 @@
 	
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 	require "./secciones/head.php";
@@ -61,7 +61,7 @@
 				<ul>
 					<?php /* Mensajito de aclaracion */?>
 					<b>	Comunidad: <?php echo $_SESSION['MEJ_COMUNIDAD']?> <br></b>
-					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
+					Esta pantalla esta orientada para visualizar rapidamente datos importantes para nosotros.
 				</ul>
 			</div>
 			<div class="cl"></div>

@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Verifica que jQuery esté cargado
+    if (typeof jQuery === 'undefined') {
+        console.error('jQuery no está cargado. El calendario no funcionará correctamente.');
+        alert('Error: jQuery no está cargado. Por favor, revisa la consola.');
+        return;
+    }
+    
+    // Verifica que jQuery UI esté cargado
+    if (typeof jQuery.ui === 'undefined') {
+        console.error('jQuery UI no está cargado. El calendario no funcionará correctamente.');
+        alert('Error: jQuery UI no está cargado. Por favor, revisa la consola.');
+        return;
+    }
+    
+    console.log('jQuery y jQuery UI están cargados correctamente');
+
     // Variables globales
     let currentDate = new Date();
     let selectedDate = null;

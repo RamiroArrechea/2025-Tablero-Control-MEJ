@@ -10,8 +10,8 @@
 			$d1 = new Objeto;
 			$d1->setId("1");
 			$d1->setName("Mej Solano");
-				$_SESSION['MEJ_COMUNIDAD']=1;
-			$d1->setHref("../mejComunidad.php?idProyecto=".$_SESSION['MEJ_COMUNIDAD']);
+				$_SESSION['ID_COMUNIDAD']=1;
+			$d1->setHref("../mejComunidad.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 			$d1->show();
 			?>
 		</li>
@@ -19,8 +19,8 @@
 			$d2 = new Objeto;
 			$d2->setId("2");
 			$d2->setName("Mej Itati");
-				$_SESSION['MEJ_COMUNIDAD']= 2;
-			$d2->setHref("../mejComunidad.php?idProyecto=".$_SESSION['MEJ_COMUNIDAD']);
+				$_SESSION['ID_COMUNIDAD']= 2;
+			$d2->setHref("../mejComunidad.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 			$d2->show();
 			?>
 		</li>
@@ -28,8 +28,8 @@
 			$d3 = new Objeto;
 			$d3->setId("3");
 			$d3->setName("Futura Comunidad MEj");
-				$_SESSION['MEJ_COMUNIDAD']= 3;
-			$d3->setHref("../mejComunidad.php?idProyecto=".$_SESSION['MEJ_COMUNIDAD']);
+				$_SESSION['ID_COMUNIDAD']= 3;
+			//$d3->setHref("../mejComunidad.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 			$d3->show();
 			?>
 		</li>

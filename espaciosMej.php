@@ -8,9 +8,16 @@
 	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 	
-	$_SESSION['ID_COMUNIDAD'];
-	$_SESSION['MEJ_COMUNIDAD'];
+	if (isset($_GET['idProyecto'])) {
+		$_SESSION['ID_COMUNIDAD'] = $_GET['idProyecto'];
+	}
 
+	switch($_SESSION['ID_COMUNIDAD']){
+		case 1:	$_SESSION['MEJ_COMUNIDAD'] = "MEJ SOLANO";	break;
+		case 2:	$_SESSION['MEJ_COMUNIDAD'] = "MEJ ITATI";	break;
+		default:	$_SESSION['MEJ_COMUNIDAD']	= "otro";	break;
+	}
+	
 	//columnas	
 	$_SESSION['ESPACIOS']		="false";
 	$_SESSION['ESTAPAS']		="false";
@@ -28,7 +35,8 @@
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 	require "./secciones/head.php";
@@ -49,10 +57,9 @@
 		<div id="table">	<!-- TABLA DETALLE DEL PROYECTO-->
 			<div class="menu">
 				<ul>
-					<?php /* Primer Tabla con descripcion del  PROYECTOS!!!
-					*/?>
+					<?php	//	Primer Tabla con descripcion del  PROYECTOS!!!		?>
 					<b>	Comunidad: <?php echo $_SESSION['MEJ_COMUNIDAD']?> <br></b>
-					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
+					Esta pantalla esta orientada para visualizar rapidamente datos importantes para nosotros.
 				</ul>
 			</div><!-- menu -->
 			<div class="cl"></div>

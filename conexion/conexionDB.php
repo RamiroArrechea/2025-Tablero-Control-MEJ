@@ -5,7 +5,8 @@
 	$dbuser = "if0_38260221";
 	$dbpass = "f1I27xIxWYTPh";
 	$dbname = "if0_38260221_mej_baseDatos";
-	$conn ="";*/
+	$conn ="";
+	*/
 
 	//	 PARA TRABAJAR EN LOCAL
 	$dbhost = "localhost";
@@ -13,7 +14,7 @@
 	$dbpass = "";
 	$dbname = "mej_baseDatos";
 	$conn ="";
-
+	
 		
 	try {
 		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);

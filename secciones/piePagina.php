@@ -7,13 +7,17 @@
 		<?php
 			switch ($_SESSION['cargo']){
 				case 'root':
-				//echo $_SESSION['cargo'] ;
+				//Para evitar cualquier "rotura" ..por defecto hago que sea MEJ SOLANO				
+				if($_SESSION['ID_COMUNIDAD'] == 3){
+					$_SESSION['ID_COMUNIDAD'] =1;	
+				}
+				
 		?>
 				<div class="col one_third">
 					<a href="./index.php">INICIO</a>::
-					<a href="./espaciosMej.php">ESPACIOS</a>::
-					<a href="./etapasMej.php">ETAPAS</a>::
-					<a href="./mejinosMej.php">MEJINOS</a>
+					<a href="./espaciosMej.php?idProyecto=<?php echo $_SESSION['ID_COMUNIDAD']; ?>">ESPACIOS</a>::
+					<a href="./etapasMej.php?idProyecto=<?php echo $_SESSION['ID_COMUNIDAD']; ?>">ETAPAS</a>::
+					<a href="./mejinosMej.php?idProyecto=<?php echo $_SESSION['ID_COMUNIDAD']; ?>">MEJINOS</a>
 				</div>
 		<?php
 				break;

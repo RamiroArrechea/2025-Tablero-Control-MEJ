@@ -2,7 +2,7 @@
 <?php
 
 	/* ////////////////////////////////////////////////////
-		TABLERO DE CONTROL: MEJ
+	TABLERO DE CONTROL: MEJ
 	Se realiza la creación y puesta funcional de la primer versión
 	de este tablero de control.
 
@@ -22,11 +22,11 @@
 
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./conexion/conexionDB.php";
-	require "./funciones/claseProyecto.php";
-
 	
 	//require "./conexion/consultasMejinos.php";
 	require "./conexion/consultasColorSemaforos.php";
+
+	require "./funciones/claseProyecto.php";
 
 	//CREAMOS VARIABLES, que se van a usar para los semafors:	
 	$_SESSION['idComunidad'] = 0;
@@ -34,10 +34,11 @@
 	$_SESSION['SEM_ESPACIOS'] = "off";
 	$_SESSION['SEM_ETAPAS'] 	= "off";
 	$_SESSION['SEM_SACRAMENTOS'] = "off";
+
 	
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <?php
@@ -60,12 +61,9 @@
 		<div id="table">	<!-- TABLA DETALLE DEL PROYECTO-->
 			<div class="menu">
 				<ul>
-					<?php 
-					/*	Primer Tabla con descripcion del  PROYECTOS!!!
-					*/			
-					?>
+					<?php	//	Primer Tabla con descripcion del  PROYECTOS!!!		?>
 					<b>	Descripcion:<br></b>
-					Esta pantalla esta orientada para la necesidad de asignar nuevos proyectos.
+					Esta pantalla esta orientada para visualizar rapidamente datos importantes para nosotros.
 				</ul>
 			</div><!-- menu -->
 			<div class="cl"></div>
