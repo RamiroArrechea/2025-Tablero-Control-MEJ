@@ -146,11 +146,12 @@ echo "estoy fuera";
 	</div>
 	
 	<!------------------------------------------------------------------------>
-	<!-- FOOTER -->
-	<?php
-		require "./secciones/piePagina.php";
-		//mysqli_close($conn); 
+	<?php 
+		/*FOOTER*/
+		require "./secciones/footer.php";
+		mysqli_close($conn); 
 	?>
+
 </body>
 </html>
 

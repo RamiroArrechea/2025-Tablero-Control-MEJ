@@ -8,7 +8,7 @@
     <div id="login-top">
         <div class="post">
             <div class="meta">
-                <span class="tag"><a href="index.html">Cerrar sesion</a></span>
+                <span class="tag"><a href="index.php">Cerrar sesion</a></span>
                 <span class="admin">
                     <?php echo "<b> ".$_SESSION['usuario']."</b>";?>
                 </span>

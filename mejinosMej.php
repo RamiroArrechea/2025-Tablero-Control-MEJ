@@ -1,4 +1,4 @@
-﻿﻿
+﻿
 <?php
 
 	# Antes que nada, inicializamos una sesion
@@ -15,14 +15,21 @@
 	require "./funciones/claseProyecto.php";
 
 	require "./conexion/conexionDB.php";
-
-	///////////////////////////////////////////////////////////////////////////
-	// Como la llamada es esta sola, la escribi aca, para no hacer otro archivo
-	// pero toda las llamadas deberian estar en CONEXION 
-	$sqlSelect = "SELECT * FROM `mejinos`
-	where mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'";
 	
-	$resultado = mysqli_query($conn,$sqlSelect);
+	///////////////////////////////////////////////////////////////////////////
+	// Como la llamada es esta sola, la escribi acá, para no hacer otro archivo
+	// pero toda las llamadas deberian estar en CONEXION 
+
+	$filtro = "";
+	if(isset($_POST['buscador']) && $_POST['buscador'] != "") {
+		$buscadorSanitizado = mysqli_real_escape_string($conn, $_POST['buscador']);
+		$filtro = " AND `mejinos_apellido` LIKE '%".$buscadorSanitizado."%'";
+	}
+	
+	$sqlSelect = "SELECT * FROM `mejinos` 
+				  WHERE mejinos_comunidad = '".$_SESSION['ID_COMUNIDAD']."'".$filtro;
+	
+	$resultado = mysqli_query($conn, $sqlSelect);
 	////////////////////////////////////////////////////////////////////////////
 ?>
 
@@ -49,20 +56,32 @@
 		?>
 		
 		<!------------------------------------------------------------------------>
-		<div id="menu">	    <!--  BARRA AZUL-->
+		<div id="menu_abm">	    <!--  BARRA AZUL-->
 			<h1 class="title"><center>MEJINOS</center></h1>
-			<div class="cl"></div>
+			
 		</div>
-		<!--------->
-		<div >	
-			<table>
-				<tbody>
-					<tr>Cargar mejino nuevo: - 
-						<?php echo "<a href='./mejinosABM_Agregar.php'>AGREGAR</a>"; ?>
-					</tr>
-				</tbody>
-			</table>
+
+		<div class="fila-acciones">
+			<div class="accion-izquierda">
+				<span>Cargar mejino nuevo: -</span>
+				<?php echo "<a href='./mejinosABM_Agregar.php'>AGREGAR</a>"; ?>
+			</div>
+
+			<div class="contenedor-buscador">
+				<form action="" method="POST">
+					<a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="boton-limpiar">Ver todos</a>	
+					<input type="text" name="buscador" id="buscar-mejinos" 
+						placeholder="Buscar x apellido..." class="input-buscador"
+						value="<?php echo isset($_POST['buscador']) ? htmlspecialchars($_POST['buscador']) : ''; ?>"
+						required oninput="let p=this.selectionStart;
+						this.value=this.value.toUpperCase();this.setSelectionRange(p, p);"
+					/>					
+					<button type="submit" class="boton-buscar">Buscar</button>					
+				</form>
+			</div>
+
 		</div>
+
 		<!------------------------------------------------------------------------>
 		<div id="table">	<!-- TABLA DESCRIPCION DEL PROYECTO-->
 			<div class="menu">
@@ -150,11 +169,11 @@
 		</div><br><!-- TABLA -->
 		<!------------------------------------------------------------------------>
 		<!-- CONTENIDO --> 	<!-- TABLA CENTRAL DE LA PANTALLA -->
-		<div id="table">	<!-- Tabla -->
+		<!--<div id="table">	<!-- Tabla -->
 				<!-- Tabla central con la lista de ABM de cada Item por cada  PROYECTOS!!!
 					De ser necesario, cambiar los datos desde el archivo listaProyecto
 				-->
-			<div id ="block"></div>
+			<!--<div id ="block"></div>
 			<div class="container">
 				<div id="popupbox"></div>
 				<div id="content">
@@ -164,75 +183,17 @@
 			<div class="cl"></div>
 		</div> <!-- table -->
 		<!------------------------------------------------------------------------>
-		<div id="table">	<!-- 3º TABLA  DEL PROYECTO-->
-			<div class="menu">
-				<ul>
-					<!-- Ultima Tabla con Acceso a la carga del PROYECTOS!!!-->
-					
-					<div class='logIzq'>
-						<label>Nuevo Registro</label>
-					</div>
 
-					<div class='logDer'>
-						<?php  echo "<a href='./mejinosABM_Agregar.php'>AGREGAR</a>"; ?>
-					</div>
-					
-					<div class="cl"></div>
-					
-				</ul>
-			</div>	<!-- menu -->
-			<div class="cl"></div>
-		</div><br> <!-- table -->
 
 	</div><!-- abmTotal -->
 
 	<!------------------------------------------------------------------------>
 	<!-- FOOTER -->
-	<div id="footer_wrapper">
-		<h5><div id="footer_abmTotal">
-
-			<?php
-				switch ($_SESSION['cargo']){
-					case 'root':
-					//echo $_SESSION['cargo'] ;
-			?>
-				<div class="col one_third">
-					<a href="./index.php">INICIO</a>::
-					<a href="./espaciosMej.php">ESPACIOS</a>::
-					<a href="./etapasMej.php">ETAPAS</a>::
-					<a href="./mejinosMej.php">MEJINOS</a>
-				</div>
-			<?php
-					break;
-					case 'lider':
-					echo $_SESSION['cargo'] ;
-			?>
-					<div class="col one_third">
-						<a href="">INICIO</a>::
-						<a href="">PROYECTOS</a>::
-						<a href="">AREAS</a>::
-						<a href="">PANTALLAS</a>
-					</div>
-			<?php
-					break;
-					default :
-					echo $_SESSION['cargo'] ;
-			?>
-					<div class="col one_third">
-						<a href="index.php">INICIO</a>::
-						<a href="">PROYECTOS</a>::
-					</div>
-			<?php
-					break;
-				}
-			?>
-			<div class="col one_third no_margin_right">
-				Copyright © 2024 <a href="" target="_new">MEJ</a>
-			</div>
-
-		<div class="cl"></div>
-    </div></h5> 
-
+	<?php
+		require "./secciones/footerAbm.php";
+		mysqli_close($conn); 
+	?>
+	
 </body>
 </html>
 

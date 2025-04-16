@@ -138,9 +138,9 @@
 	</div>
 	
 	<!------------------------------------------------------------------------>
-	<!-- FOOTER -->
-	<?php
-		require "./secciones/piePagina.php";
+	<?php 
+		/*FOOTER*/
+		require "./secciones/footer.php";
 		mysqli_close($conn); 
 	?>
 </body>

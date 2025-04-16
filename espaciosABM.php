@@ -152,11 +152,11 @@
 	</div>
 	
 	<!------------------------------------------------------------------------>
-	<!-- FOOTER -->
-	<?php
-		require "./secciones/piePagina.php";
-		//mysqli_close($conn); 
+	<?php 
+		/*FOOTER*/
+		require "./secciones/footer.php";
 	?>
+
 </body>
 </html>
 

@@ -66,12 +66,9 @@
 			<div class="leftcolumn">
 				<div id="navvy">
 					<ul id="navvylist">
-						<!-- Tabla izquierda con la lista de Item dentro del proyecto!!!
-							De ser necesario, cambiar los datos desde el archivo columnaItem.
-						-->
-						<li><?php		# Item << Avance >>
+						<!-- Comentario de ser necesario!!! 	-->
+						<li><?php
 							$d0 = new Objeto;
-							$d0->setId("1");
 							$d0->setName("<b>VOLVER</b>");
 							$d0->setHref("./index.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 							$d0->show();
@@ -86,9 +83,9 @@
 			<div class="rightcolumn">
 				<div id="cajaLista">
 					<ul id="cajaLista">
-						<?php /*	Comentario, por esi es necesario del tablero !!!
+						<?php /*	Comentario, por esi es necesario del tablero !!! -
 						*/?>
-							<div class='logCenter'><b><u>Seleccion su pantalla</u></b></div>
+							<div class='logCenter'>Seleccion su pantalla</div>
 					</ul>
 				</div>
 			</div>
@@ -106,9 +103,9 @@
 	</div><!-- wrapper -->
 
 	<!------------------------------------------------------------------------>
-	<!-- FOOTER -->
-	<?php
-		require "./secciones/piePagina.php";
+	<?php 
+		/*FOOTER*/
+		require "./secciones/footer.php";
 	?>
 </body>
 </html>

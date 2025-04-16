@@ -52,7 +52,7 @@ dd {margin-left:1.5em;}
 table {margin-bottom:1.4em;width:100%;}
 td{ text-align:center;}
 th {font-weight:bold;text-align:center;}
-thead th {background:#1e4381 url("../images/bg-menu.gif") no-repeat scroll right top; color:white;}
+thead th {background:#2a9fcc; color:white;}
 th, td, caption {padding:4px 4px 4px 5px;}
 tbody tr:nth-child(even) td, tbody tr.even td {background:#e5ecf9;}
 tfoot {font-style:italic;}
@@ -69,6 +69,20 @@ caption {background:#eee;}
 .last {margin-right:0;padding-right:0;}
 .top {margin-top:0;padding-top:0;}
 .bottom {margin-bottom:0;padding-bottom:0;}
+
+.title{
+    background:#2a9fcc;
+    border: 2px solid #2a9fcc;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 5px 5px 15px #999;
+    color: white;
+    font-family: Lucida Grande;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 5px;
+    text-shadow: 1px 1px gray;
+}
 
 /* forms.css */
 fieldset {padding:0 1.4em 1.4em 1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}

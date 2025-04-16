@@ -44,7 +44,6 @@
 		</li>
 		<li><?php
 			$i6 = new Objeto;
-			$i6->setId("6");
 			$i6->setName('Cant. Mejinos');
 			$i6->showDetalle();
 			?>

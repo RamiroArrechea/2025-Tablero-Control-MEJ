@@ -60,7 +60,6 @@
 					<ul id="navvylist">
 						<li><?php
 							$d0 = new Objeto;
-							$d0->setId("1");
 							$d0->setName("<b>VOLVER</b>");
 							$d0->setHref("./espaciosMej.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 							$d0->show();
@@ -164,10 +163,12 @@
 	</div>
 	
 	<!------------------------------------------------------------------------>
-	<!-- FOOTER -->
-	<?php
-		require "./secciones/piePagina.php";
+	<?php 
+		/*FOOTER*/
+		require "./secciones/footer.php";
+		mysqli_close($conn); 
 	?>
+
 </body>
 </html>
 

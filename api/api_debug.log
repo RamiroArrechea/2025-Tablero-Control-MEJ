@@ -458,3 +458,23 @@ SQL: INSERT INTO mej_eventos (id_comunidad, titulo, descripcion, fecha) VALUES (
 Prepare exitoso
 Bind_param ejecutado
 Execute exitoso. ID insertado: 28
+=== 2025-04-15 15:50:01 ===
+Archivo ejecutado: C:\Users\Ramiro\Desktop\Documentos\paginasWeb\2025 MejTableroControl\api\guardar_evento.php
+Sesión iniciada
+Archivo de conexión incluido
+Estado de conexión: Conectado
+Datos JSON recibidos: {"fecha":"2025-04-16","titulo":"22222","descripcion":"","id":null}
+Datos decodificados: Array
+(
+    [fecha] => 2025-04-16
+    [titulo] => 22222
+    [descripcion] => 
+    [id] => 
+)
+
+ID_COMUNIDAD: 1
+Preparando para insertar: ID_COM=1, TIT=22222, FECHA=2025-04-16
+SQL: INSERT INTO mej_eventos (id_comunidad, titulo, descripcion, fecha) VALUES (?, ?, ?, ?)
+Prepare exitoso
+Bind_param ejecutado
+Execute exitoso. ID insertado: 30

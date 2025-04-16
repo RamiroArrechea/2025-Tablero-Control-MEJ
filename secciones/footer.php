@@ -3,7 +3,7 @@
 ?>
 
 <div id="footer_wrapper">
-<h5><div id="footer">
+	<h5><div id="footer">
 		<?php
 			switch ($_SESSION['cargo']){
 				case 'root':
@@ -13,7 +13,7 @@
 				}
 				
 		?>
-				<div class="col one_third">
+				<div id="footer_widget">
 					<a href="./index.php">INICIO</a>::
 					<a href="./espaciosMej.php?idProyecto=<?php echo $_SESSION['ID_COMUNIDAD']; ?>">ESPACIOS</a>::
 					<a href="./etapasMej.php?idProyecto=<?php echo $_SESSION['ID_COMUNIDAD']; ?>">ETAPAS</a>::
@@ -43,12 +43,13 @@
 				break;
 			}
 		?>
-        <div class="col one_third no_margin_right">
+        <div id="footer_widget">
             Copyright © 2025 <a href="" target="_new">MEJ</a>
         </div>
 
 		<div class="cl"></div>
     </div></h5> 
+</div>
 
 
 

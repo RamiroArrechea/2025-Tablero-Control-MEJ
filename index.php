@@ -79,7 +79,6 @@
 						-->
 						<li><?php
 							$d0 = new Objeto;
-							$d0->setId("1");
 							$d0->setName("<b>Comunidad</b>");
 							$d0->setHref("");
 							$d0->show();
@@ -134,10 +133,10 @@
 	</div><!-- wrapper -->
 
 	<!------------------------------------------------------------------------>
-	<!-- FOOTER -->
-	<?php
-		require "./secciones/piePagina.php";
-	?>		
+	<?php 
+		/*FOOTER*/
+		require "./secciones/footer.php";
+	?>
 
 </body>
 </html>

@@ -67,12 +67,9 @@
 			<div class="leftcolumn">
 				<div id="navvy">
 					<ul id="navvylist">
-						<!-- Tabla izquierda con la lista de Item dentro del proyecto!!!
-							De ser necesario, cambiar los datos desde el archivo columnaItem.
-						-->
+						<?php /*	 posible comentario		*/?>
 						<li><?php
 							$d0 = new Objeto;
-							$d0->setId("1");
 							$d0->setName("<b>VOLVER</b>");
 							$d0->setHref("./mejComunidad.php?idProyecto=".$_SESSION['ID_COMUNIDAD']);
 							$d0->show();
@@ -89,9 +86,7 @@
 			<div class="rightcolumn">
 				<div id="cajaLista">
 					<ul id="etapasLista">
-						<?php /*	Detalle de los Items en la parte superior del tablero !!!
-								De ser necesario, cambiar los datos desde el archivo listaItem
-						*/?>
+						<?php /*	 posible comentario	*/?>
 						<?php	include "./secciones/SacramentosListaItem.php";   ?>
 						<div class='logCenter'></div>
 					</ul>
@@ -114,9 +109,9 @@
 	</div>
 	
 	<!------------------------------------------------------------------------>
-	<!-- FOOTER -->
-	<?php
-		require "./secciones/piePagina.php";
+	<?php 
+		/*FOOTER*/
+		require "./secciones/footer.php";
 	?>
 </body>
 </html>
