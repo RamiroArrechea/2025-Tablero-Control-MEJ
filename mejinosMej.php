@@ -57,8 +57,9 @@
 		
 		<!------------------------------------------------------------------------>
 		<div id="menu_abm">	    <!--  BARRA AZUL-->
-			<h1 class="title"><center>MEJINOS</center></h1>
-			
+		<h1 class="title text-center">
+				<a href="mejComunidad.php?idProyecto=<?php echo $_SESSION['ID_COMUNIDAD']; ?>">MEJINOS</a>
+			</h1>	
 		</div>
 
 		<div class="fila-acciones">
@@ -100,10 +101,13 @@
 					</thead>
 					<tbody>
 						<?php	
-							while($filas = mysqli_fetch_assoc($resultado)){
+							$i=1;
+							while($filas = mysqli_fetch_assoc($resultado))
+							{	//<td> <?php echo $filas['mejinos_id']
 						?>
 						<tr>
-							<td> <?php echo $filas['mejinos_id'] ?> 		</td>
+							
+							<td> <?php echo $i; ?> 		</td>
 							<td> <?php echo $filas['mejinos_apellido'] ?> 	</td>
 							<td> <?php echo $filas['mejinos_nombre'] ?> 	</td>
 							<td> <?php echo $filas['mejinos_fechaNac'] ?> 	</td>
@@ -157,34 +161,15 @@
 							</td>
 
 						</tr>
-						<?php } ?>
+						<?php $i++; } ?>
 					</tbody>
 				</table>
-				<?php 
-				//mysqli_close($conn); ?>
 			</div>
 			
 
 			<div class="cl"></div>
 		</div><br><!-- TABLA -->
-		<!------------------------------------------------------------------------>
-		<!-- CONTENIDO --> 	<!-- TABLA CENTRAL DE LA PANTALLA -->
-		<!--<div id="table">	<!-- Tabla -->
-				<!-- Tabla central con la lista de ABM de cada Item por cada  PROYECTOS!!!
-					De ser necesario, cambiar los datos desde el archivo listaProyecto
-				-->
-			<!--<div id ="block"></div>
-			<div class="container">
-				<div id="popupbox"></div>
-				<div id="content">
-					<?php //include_once ($view->contentTemplate); // incluyo el template que corresponda ?>
-				</div>
-			</div>
-			<div class="cl"></div>
-		</div> <!-- table -->
-		<!------------------------------------------------------------------------>
-
-
+		
 	</div><!-- abmTotal -->
 
 	<!------------------------------------------------------------------------>

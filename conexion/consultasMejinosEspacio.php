@@ -89,7 +89,7 @@
 			//echo "ENTRE A resultadoJovenes " ;
 
 		}else{
-		echo "error------ A resultadoADO " ;
+		echo "error------ A  " ;
 		}
 
 
@@ -109,7 +109,7 @@
 			//echo "ENTRE A resultadoJovenes " ;
 
 		}else{
-		echo "error------ A resultadoADO " ;
+		echo "error------ A  " ;
 		}
 
 

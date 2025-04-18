@@ -10,6 +10,7 @@
 
 	$_SESSION['ID_COMUNIDAD'];
 	$_SESSION['MEJ_COMUNIDAD'];
+	$_SESSION['NUM_MEJINOS'] =0;
 
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
@@ -17,7 +18,8 @@
 	require "./conexion/conexionDB.php";
 	require "./conexion/consultasSacramentos.php";
 
-		
+	$_SESSION['NUM_MEJINOS'] = mysqli_num_rows($resultadoNoTiene);
+
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +72,7 @@
 							$_SESSION['DETALLE_ESPACIO'] = "true";
 							include "./secciones/ColumnaItem.php";   
 						?>						
-						<div class='logCenter'></div>
+						
 					</ul>
 				</div>
 			</div>
@@ -154,8 +156,7 @@
 							<?php } ?>
 						</tbody>
 					</table>
-					<?php 
-					//mysqli_close($conn); ?>
+
 				</div>
 			</div>
 
@@ -164,10 +165,12 @@
 	</div>
 	
 	<!------------------------------------------------------------------------>
-	<!-- FOOTER -->
-	<?php
-		require "./secciones/piePagina.php";
+	<?php 
+		/*FOOTER*/
+		require "./secciones/footer.php";
+		mysqli_close($conn);
 	?>
+
 </body>
 </html>
 

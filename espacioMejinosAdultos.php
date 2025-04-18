@@ -4,14 +4,13 @@
 	# Antes que nada, inicializamos una sesion
 	session_start(); 
 	session_id(); 
-	# Establesco la conexion con la base de datos.
-	//include "../conexion/conexionDB.php";
 	
 	//$_SESSION['usuario'] = "Rama";
 	$_SESSION['cargo'] = "root";
 
 	$_SESSION['ID_COMUNIDAD'];
 	$_SESSION['MEJ_COMUNIDAD'];
+	$_SESSION['NUM_MEJINOS'] =0;
 
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
@@ -19,6 +18,7 @@
 	require "./conexion/conexionDB.php";
 	require "./conexion/consultasMejinosEspacio.php";
 
+	$_SESSION['NUM_MEJINOS'] = mysqli_num_rows($resultadoAdultos);
 		
 ?>
 
@@ -73,7 +73,7 @@
 							$_SESSION['DETALLE_ESPACIO'] = "true";
 							include "./secciones/ColumnaItem.php";   
 						?>
-						<div class='logCenter'></div>
+						
 					</ul>
 				</div>
 			</div>
@@ -158,8 +158,7 @@
 							<?php } ?>
 						</tbody>
 					</table>
-					<?php 
-					//mysqli_close($conn); ?>
+
 				</div>
 			</div>
 

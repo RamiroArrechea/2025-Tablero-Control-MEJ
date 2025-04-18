@@ -4,7 +4,7 @@
 
     <!-- favicon -->
     <link rel="shortcut icon" href="./asset/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet"    type="text/css"   href="./css/style.css"/>
+    <link rel="stylesheet"    type="text/css"   href="./css/ramiro.css"/>
     <link rel="stylesheet"    type="text/css"   href="./css/proyectoDetalle.css"/>
 
     <!--

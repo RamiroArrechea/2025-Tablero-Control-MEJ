@@ -10,6 +10,7 @@
 
 	$_SESSION['ID_COMUNIDAD'];
 	$_SESSION['MEJ_COMUNIDAD'];
+	$_SESSION['NUM_MEJINOS'] =0;
 
 	# Antes que nada, Conectamos la DB y a las funciones
 	require "./funciones/claseProyecto.php";
@@ -17,6 +18,7 @@
 	require "./conexion/conexionDB.php";
 	require "./conexion/consultasMejinosEspacio.php";
 
+	$_SESSION['NUM_MEJINOS'] = mysqli_num_rows($resultadoJunior);
 		
 ?>
 
@@ -69,7 +71,7 @@
 							$_SESSION['DETALLE_ESPACIO'] = "true";
 							include "./secciones/ColumnaItem.php";   
 						?>
-						<div class='logCenter'></div>
+
 					</ul>
 				</div>
 			</div>
@@ -84,6 +86,7 @@
 					</ul>
 				</div>
 			</div>
+			
 			<div class="rightcolumn">
 				<div class="menu">
 					<table>
@@ -153,8 +156,6 @@
 							<?php } ?>
 						</tbody>
 					</table>
-					<?php 
-					//mysqli_close($conn); ?>
 				</div>
 			</div>
 

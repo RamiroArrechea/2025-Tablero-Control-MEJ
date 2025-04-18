@@ -115,8 +115,6 @@
 							<?php } ?>
 						</tbody>
 					</table>
-					<?php 
-					//mysqli_close($conn); ?>
 				</div>
 			</div>
 

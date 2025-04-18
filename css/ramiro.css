@@ -12,6 +12,92 @@ body {
         width: 100%;
         padding: 10px;
     }
+    
+    /* Optimización del footer para móviles */
+    #footer_wrapper {
+        padding: 15px 0 2px 0;
+        font-size: 12px;
+    }
+    
+    #footer, #footer_abm, #footer_abmTotal {
+        width: 95%;
+        padding: 15px 5px;
+    }
+    
+    /* Mejora para elementos de navegación en móviles */
+    #navigation {
+        padding: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    ul.nav-main li {
+        float: none;
+        width: 100%;
+        height: auto;
+    }
+    
+    ul.nav-main li a {
+        padding: 12px 10px;
+        height: auto;
+    }
+    
+    ul.nav-sub {
+        position: static;
+        visibility: visible;
+        width: 100%;
+        padding: 0;
+    }
+    
+    ul.nav-sub li, ul.nav-sub li a {
+        width: 100%;
+    }
+    
+    /* Mejoras para la tabla responsiva */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    #table-header, #table-top, #table-middle, #table-bottom, #table-footer {
+        min-width: 600px;
+    }
+    
+    /* Ajustes para las columnas en móviles */
+    .leftcolumn, .rightcolumn {
+        width: 100%;
+        float: none;
+    }
+    
+    .columnaItem, .columnaSemaforo {
+        width: 100%;
+        float: none;
+    }
+    
+    .tabla-izq, .tabla-der {
+        width: 100%;
+        float: none;
+    }
+    
+    .logIzq, .logDer {
+        width: 100%;
+        float: none;
+        padding: 0.5em 1em;
+    }
+    
+    /* Ajustes para el buscador */
+    .fila-acciones {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .accion-izquierda {
+        margin-bottom: 10px;
+    }
+    
+    .input-buscador {
+        width: 70%;
+    }
 }
 
 /* Estilos para pantallas medianas (tablets) */
@@ -19,6 +105,16 @@ body {
     .container {
         width: 80%;
         margin: 0 auto;
+    }
+    
+    /* Ajustes para tablets */
+    #footer, #footer_abm, #footer_abmTotal {
+        width: 90%;
+        padding: 20px 5px;
+    }
+    
+    .logIzq, .logDer {
+        padding: 0.5em 1em;
     }
 }
 
@@ -32,13 +128,30 @@ body {
  
 html {
 	font-size: 16px;
-  }
+}
   
-  @media (max-width: 767px) {
-	html {
-	  font-size: 14px;
-	}
-  }
+@media (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+    
+    /* Mejoras adicionales para móviles */
+    h1 { font-size: 32px; margin: 0 0 20px; padding: 3px 0 }
+    h2 { font-size: 24px; margin: 0 0 18px; padding: 3px 0 }
+    h3 { font-size: 20px; margin: 0 0 15px; }
+    h4 { font-size: 16px; margin: 0 0 12px; }
+    
+    /* Ajuste para logo y login-top en móviles */
+    #logo, #login-top {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #login-top h1 {
+        text-align: center;
+    }
+}
  
  /*BODY*/
 * { padding: 0px; margin: 0px; outline: 0; }
@@ -93,7 +206,6 @@ div .libre  {
 	margin: .4em 0;
 	float: left;
 }
-
 /*-----------------------------------------------------------------*/
 /* Para un elemento que tiene ambas clases 'title' Y 'text-center' */
 .title.text-center {
@@ -108,46 +220,8 @@ div .libre  {
 .title.text-center a:hover {
     color: #db600e;
 }
-/*-----------------------------------------------------------------*/
-/* OBJECT DEL SELECT*/
 
-.sem {
-		height		: 25px;
-		background: transparent;
-		background-repeat: no-repeat;
-		background-position: 10% 45%;
-		margin		: 0px;
-		outline		: 0;
-}
 
-.semaforo {
-		height		: 25px;
-		background: white;
-		background-repeat: no-repeat;
-		background-position: 10% 45%;
-		padding-top : 10px;
-		padding-left: 50px;
-		padding		: 0;
-		margin:6px 5px 0px 15px;
-		outline		: 0;
-}
-
-.ui-resizable-se {
-		bottom: 17px;
-}
-/*------------------------------------------------------------------*/
-/*Jquery*/
-.demo-description {
-	clear: both;
-	padding: 12px;
-	font-size: 1.3em;
-	line-height: 1.4em;
-}
-
-.ui-draggable, .ui-droppable {
-	background-position: top;
-}
-/*------------------------------------------------------------------*/
 /*LINKS*/
 a, a:link, a:visited { color: #2a9fcc; font-weight: normal; text-decoration: none; border-style:none; }
 a.more { display: inline-block; width: 80px; height: 22px; line-height: 22px; text-align: center; }
@@ -214,7 +288,7 @@ h6 { font-size: 12px; margin: 0 0 5px ; padding: 0; }
 
 #abmTotal{ width:97%; margin: 0 auto; padding:0px 10px; background:#FFFFFF; border:1px solid #D8DBE2; border-left-width:5px; border-right-width:5px; }
 
-#abmRRHH { width:150%; margin:0 auto; padding:0px 10px; background:#FFFFFF; border:1px solid #D8DBE2; border-left-width:5px; border-right-width:5px;}
+/*#abmRRHH { width:150%; margin:0 auto; padding:0px 10px; background:#FFFFFF; border:1px solid #D8DBE2; border-left-width:5px; border-right-width:5px;}*/
 
 #header  { width: 100%;	padding: 30px 0 0px 0;}
 #menu { width: 100%; height: 90px;}
@@ -330,11 +404,11 @@ ul.nav-main { position:relative; z-index:597;}
 ul.nav-main li:hover > ul {	visibility:visible;}
 ul.nav-main li.hover,
 ul.nav-main li:hover { position: relative; z-index: 599; cursor: pointer; background:#036db2;}
-ul.nav-main li { float:left; display:block; height: 51px;}
+ul.nav-main li { float:left; display:block; height: 51px; background: url(../images/separator.gif) no-repeat right center;}
 ul.nav-main li a { display: block; padding: 16px 16px 0 16px; height: 35px;	color: #ebebeb; font-size: 0.9em;	text-decoration: none; font-weight:bold;}
 ul.nav-main li a:hover { color:#D6D6D6; }
-ul.nav-main *.list { padding-right: 22px; }
-ul.nav-main *.list2 { padding-right: 22px;}
+ul.nav-main *.list { padding-right: 22px; background: url(../images/navigation-arrow.gif) no-repeat right top;}
+ul.nav-main *.list2 { padding-right: 22px; background: url(../images/navigation-arrow2.gif) no-repeat right top;}
 ul.nav-sub { visibility: hidden; position: absolute; padding:10px; top: 48px; left: 0;	z-index: 598; background: #036db2;	border-right: 1px solid #000;	border-bottom: 1px solid #000;	border-left: 1px solid #000;}
 ul.nav-sub li {	list-style:none;	display:block;	padding: 0;	height: 27px;	float: none;	width:145px;	border-bottom: 1px solid #5a5a5a;	background: none;}
 ul.nav-sub li a {	list-style:none;	display:block;	padding: 6px 5px 6px 5px;	height: 15px;	float: none;	width:145px;	background: none;	font-size: 0.9em;}
@@ -379,7 +453,11 @@ ul.nav-sub li a {	list-style:none;	display:block;	padding: 6px 5px 6px 5px;	heig
  #table-footer { width:100%; padding: 8px 0 8px 0; font-size: 10px; color:#8a8a8a; margin:0;
 					background: #f6f6f6 url(../images/center-bcg.png) repeat-y right top;	}
 
-.table-responsive { overflow-x: auto; }
+/* Mejora: Agregado para hacer tablas responsivas */
+.table-responsive { 
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+}
 
  .leftcolumn{
 	width:15%; float:left; 
@@ -516,7 +594,9 @@ ul#etapasLista li a:hover, ul#cajaLista li#active a:hover {
 	width:96%; 
 	height:48px;
 	display:block; 
-	margin:0; text-align:center; padding:0.5em 0 0.5em 2em; border-width:1px;
+	margin:0;
+    text-align:center; 
+    padding:0.5em 0 0.5em 2em; border-width:1px;
 	border-color:#b3c1db #0A0A0A #b3c1db #1f3d71; 
 	color:#1f3d71; 
 	border-bottom: 2px solid #b3c1db; 
